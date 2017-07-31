@@ -1,5 +1,8 @@
 # pyTag
 Automated identification of ontological terms in application area specific literature surveys
+```diff
+- Please notice that the repository for this project is still under construction! 
+```
 
 # Dependencies
 - You will need python version 3.4.0 or newer versions to execute the software.
