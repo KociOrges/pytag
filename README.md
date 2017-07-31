@@ -1,7 +1,7 @@
 # pyTag
 Automated identification of ontological terms in application area specific literature surveys
 ```diff
-- Please notice that the repository for this project is under construction!
+- Please notice that the repository for this project is still under construction!
 ```
 
 # Dependencies
