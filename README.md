@@ -15,14 +15,14 @@ To install ```pyTag```  onto your machine, use the setup.py file:
 $ python setup.py install
 ```
 
-# Usage
+## Usage
 Once that is done, you can start annotating BibTex files from the command line. We will assume that you already have the BibTex files that you want to annotate in the directory ```path_to_BibTex_files/```. We will also assume that you want to identify terms from all the supported ontologies for your annotation. The identified terms are then described in the ```TSV``` table ```ontology_terms.tsv```. This can be done as follows:
 
 ```
 $ python pytag.py --input_dir path_to_BibTex_files/ --onto_types all --out_file ontology_terms.tsv
 ```
 
-# All parameters
+### All parameters
 You can also specify the ontology/ies that you want to utilise for your annotation by using the associated numerical identifiers as decribed below:
 * ```0```: ```Genes/proteins``` from the specified organism
 * ```-1```: ```PubChem Compound``` identifiers
@@ -34,7 +34,7 @@ You can also specify the ontology/ies that you want to utilise for your annotati
 * ```-26```: ```Disease Ontology``` terms
 * ```-27```: ```Environment Ontology``` terms
 
-For eaxmple, let's say that you would like to identify the Environment, Tissue and Disease mentions in your BibTex files. This can be done as follows (the order of the numerical identifiers is irrelevant):
+For example, let's say that you would like to identify the Environment, Tissue and Disease mentions in your BibTex files. This can be done as follows (the order of the numerical identifiers is irrelevant):
 
 ```
 $ python pytag.py --input_dir path_to_BibTex_files/ --onto_types -27 -25 -26 --out_file ontology_terms.tsv
