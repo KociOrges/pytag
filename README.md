@@ -109,7 +109,7 @@ Ulcerative.Colitis.Nutrition.2015.2016   26419460  traf6      Genes/Proteins   e
 Ulcerative.Colitis.Nutrition.2015.2016   27281309  intestine  Tissue           bto:0000642
 ```
 
-In the ```annotation_summary.tsv``` table you will find for each BibTex file, the number of references that were found, the number of the abstracts that were available for these references and the number of the abstracts that were finally annotated. It should look like this:
+In the ```annotation_summary.tsv``` table you will find for each BibTex file, the number of references that were found, the number of the abstracts that were available for these references and the number of the abstracts that were finally annotated ( this information can be useful in case we need to perform statistical analysis on the metadata and we would consider e.g., the number of the annotated abstracts in the normalisation approach for our frequency data obtained from the ```crohn_colitis_ontology_terms.tsv``` table). The file should look like this:
 ```
 $ cat annotation_summary.tsv 
 	                        Total_number_of_references   Available_abstracts   Annotated_abstracts
