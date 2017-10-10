@@ -106,5 +106,13 @@ Crohn.Nutrition.2015.2016   25969456  4-cd                    Chemical Compound	
 Ulcerative.Colitis.Nutrition.2015.2016   25850835  perineal   Organism         138833
 Ulcerative.Colitis.Nutrition.2015.2016   26419460  trim39     Genes/Proteins   ensmusp00000039790
 Ulcerative.Colitis.Nutrition.2015.2016   26419460  traf6      Genes/Proteins   ensrnop00000006148
-Ulcerative.Colitis.Nutrition.2015.2016   27281309  intestine  Tissue	         bto:0000642
+Ulcerative.Colitis.Nutrition.2015.2016   27281309  intestine  Tissue           bto:0000642
+```
+
+In the annotation_summary.tsv table you will find for each BibTex file, the number of references that were found, the number of the abstracts that were available for these references and the number of the abstracts that were finally annotated. It should look like this:
+```
+$ cat annotation_summary.tsv 
+	                        Total_number_of_references	Available_abstracts	 Annotated_abstracts
+Crohn.Nutrition.2015.2016	                       676	                630	                 603
+Ulcerative.Colitis.Nutrition.2015.2016	         463	                443	                 424
 ```
