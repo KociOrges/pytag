@@ -16,10 +16,10 @@ $ python setup.py install
 ```
 
 # Usage
-After you have finished with the required packages, you can start annotating BibTex files from the command line. This can be done as follows:
+Once that is done, you can start annotating BibTex files from the command line. We will assume that you already have the BibTex files that you want to annotate in the directory ```path_to_BibTex_files/```. We will also assume that you want to identify terms from all the supported ontologies for your annotation. The identified terms are then described in the ```TSV``` table ```ontology_terms.tsv```. This can be done as follows:
 
 ```
-$ python pytag.py --input_dir BibTex\ files/ --onto_types 0 -1 -2 -21 -22 -23 -25 -26 -27 --out_file ontology_terms.tsv
+$ python pytag.py --input_dir path_to_BibTex_files/ --onto_types all --out_file ontology_terms.tsv
 ```
 
 # What does it do exactly?
