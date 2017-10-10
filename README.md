@@ -63,7 +63,7 @@ Crohn.Nutrition.2015.2016.bib
 Ulcerative.Colitis.Nutrition.2015.2016.bib
 ```
 
-In our scenario, we assume that we are interested to annotate our literature with terms that are related to all the supported ontology types (in case we would like to specify only some particular types then we should replace parameter 'all' with the relevant numerical identifiers as described in section Usage). We also define crohn_colitis_ontology_terms.tsv as the TSV file where the identified terms will be described. This can be done as follows:
+In our scenario, we assume that we are interested to annotate our literature with terms that are related to all the supported ontology types (in case we would like to specify only some particular types then we should replace parameter 'all' with the relevant numerical identifiers as described in section Usage). We also define ```crohn_colitis_ontology_terms.tsv``` as the ```TSV``` file where the identified terms will be described. This can be done as follows:
 
 ```
 $ python pytag.py --input_dir BibTex_files/ --onto_types all --out_file crohn_colitis_ontology_terms.tsv
@@ -94,7 +94,7 @@ pytag.py
 crohn_colitis_ontology_terms.tsv
 annotation_summary.tsv
 ```
-The crohn_colitis_ontology_terms.tsv is the most interesting file and contains the ontology terms identified in the references of each BibTex file, followed with the associated PubMed ID of the abstract they were found in each case. For each term, the relevant ontology entry is mentioned followed with the associated identifier. The ```TSV``` file should look like this:
+The ```crohn_colitis_ontology_terms.tsv``` is the most interesting file and contains the ontology terms identified in the references of each BibTex file, followed with the associated PubMed ID of the abstract they were found in each case. For each term, the relevant ontology entry is mentioned followed with the associated identifier. The ```TSV``` file should look like this:
 ```
 $ cat crohn_colitis_ontology_terms.tsv
 Crohn.Nutrition.2015.2016   26011900  cancer                  Disease              doid:162
@@ -109,7 +109,7 @@ Ulcerative.Colitis.Nutrition.2015.2016   26419460  traf6      Genes/Proteins   e
 Ulcerative.Colitis.Nutrition.2015.2016   27281309  intestine  Tissue           bto:0000642
 ```
 
-In the annotation_summary.tsv table you will find for each BibTex file, the number of references that were found, the number of the abstracts that were available for these references and the number of the abstracts that were finally annotated. It should look like this:
+In the ```annotation_summary.tsv``` table you will find for each BibTex file, the number of references that were found, the number of the abstracts that were available for these references and the number of the abstracts that were finally annotated. It should look like this:
 ```
 $ cat annotation_summary.tsv 
 	                        Total_number_of_references   Available_abstracts   Annotated_abstracts
