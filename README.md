@@ -6,14 +6,20 @@ Automated identification of ontological terms in application area specific liter
 
 # Dependencies
 - You will need python version 3.4.0 or newer versions to execute the software.
-- The project also depends on some other modules such as ```bitexparser 0.6.2``` for parsing the BibTex files and the ```Inflect 0.2.5``` package to check for words in plural form. Happily, these will be installed automatically when calling the pip command below.
+- The project also depends on some other modules such as ```bibtexparser 0.6.2``` for parsing the BibTex files and the ```Inflect 0.2.5``` package to check for words in plural form. Happily, these will be installed automatically when calling the pip command below.
 - We use EXTRACT (http://extract.jensenlab.org/), a custom named entity recognition (NER) system to annotate the text contets with ontological terms.
+
+# Installing
+To install ```pyTag```  onto your machine, use the setup.py file:
+```
+$ python setup.py install
+```
 
 # Usage
 After you have finished with the required packages, you can start annotating BibTex files from the command line. This can be done as follows:
 
 ```
-$ pytag -i path_to_bibtex_files/ -o onto_terms.tsv
+$ python pytag.py --input_dir BibTex\ files/ --onto_types 0 -1 -2 -21 -22 -23 -25 -26 -27 --out_file ontology_terms.tsv
 ```
 
 # What does it do exactly?
