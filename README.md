@@ -6,8 +6,7 @@ Automated identification of ontological terms in application area specific liter
 
 # Dependencies
 - You will need python version 3.4.0 or newer versions to execute the software.
-- The pipeline requires also bitexparser 0.6.2 for parsing the BibTex files. You can download and install this from here: https://github.com/sciunto-org/python-bibtexparser
-- The tool makes use of inflection package to check for words in plural form. You can get and install this package from here: https://pypi.python.org/pypi/inflect
+- The project also depends on some other modules such as bitexparser 0.6.2 for parsing the BibTex files and the Inflect 0.2.5 package to check for words in plural form. Happily, these will be installed automatically when calling the pip command below.
 - We use EXTRACT (http://extract.jensenlab.org/), a custom named entity recognition (NER) system to annotate the text contets with ontological terms.
 
 # Usage
