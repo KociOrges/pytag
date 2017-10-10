@@ -99,7 +99,7 @@ The crohn_colitis_ontology_terms.tsv is the most interesting file and contains t
 $ cat crohn_colitis_ontology_terms.tsv
 Crohn.Nutrition.2015.2016   26011900  cancer                  Disease              doid:162
 Crohn.Nutrition.2015.2016   26742586  proteobacteria          Organism	           1224
-Crohn.Nutrition.2015.2016   26742586  inflammatory response   Biological Process  go:0006954
+Crohn.Nutrition.2015.2016   26742586  inflammatory response   Biological Process   go:0006954
 Crohn.Nutrition.2015.2016   26742586  e. coli                 Organism             110766
 Crohn.Nutrition.2015.2016   25969456  4-cd                    Chemical Compound	   cids44608013
 ...
