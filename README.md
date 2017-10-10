@@ -22,6 +22,13 @@ Once that is done, you can start annotating BibTex files from the command line. 
 $ python pytag.py --input_dir path_to_BibTex_files/ --onto_types all --out_file ontology_terms.tsv
 ```
 
+# All parameters
+You can also specify the ontology/ies that you want to utilise for your annotation. Every ontology is associated with a numerical identifier which can be specified from the command line as follows:
+ Markup : * Bullet list
+              * Nested bullet
+                  * Sub-nested bullet etc
+          * Bullet list item 2
+
 # What does it do exactly?
 Starting from a keyword search in PubMed database, the returned abstracts can be extracted and then imported into a citation management software, such as EndNote (http://endnote.com/). Next, they are exported in BibTeX format, where every reference is annotated with a number of records including PubMed IDs. In pyTag pipeline, for each PubMed ID described in the BibTex files, the associated link in NCBI database is followed and the relevant abstract is extracted. Next, these abstracts are processed using a custom named entity recognition (NER) system called EXTRACT. The system supports multiple ontologies and can list the PubChem Compounds, Environmental Ontology, NCBI Taxonomy, BRENDA Tissue Ontology, Disease Ontology, and Gene Ontology (biological process, cellular component, and molecular function) in a given piece of text. After the collection and the annotation of the total number of abstracts is performed, a table describing the identified ontological terms is generated, which can next be subjected to statistical analysis for further exploration.
 
@@ -31,3 +38,6 @@ The volume of biomedical literature in electronic format has grown exponentially
 # Pipeline overview
 Schematic of the workflow for the automated identification and analyses of ontological terms in literature data: 
 ![workflow](https://user-images.githubusercontent.com/30604050/28795721-d8093606-7632-11e7-82c1-ca86d2a7fedf.png)
+
+# Tutorial
+
