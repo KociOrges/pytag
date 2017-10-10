@@ -63,7 +63,7 @@ Crohn.Nutrition.2015.2016.bib
 Ulcerative.Colitis.Nutrition.2015.2016.bib
 ```
 
-In our scenario, we assume that we are interested to annotate our literature with terms that are related to all the supported ontology types. We also define crohn_colitis_ontology_terms.tsv as the TSV file where the identified terms will be described. This can be done as follows:
+In our scenario, we assume that we are interested to annotate our literature with terms that are related to all the supported ontology types (in case we would like to specify only some particular types then we should replace parameter 'all' with the relevant numerical identifiers as described in section Usage). We also define crohn_colitis_ontology_terms.tsv as the TSV file where the identified terms will be described. This can be done as follows:
 
 ```
 $ python pytag.py --input_dir BibTex_files/ --onto_types all --out_file crohn_colitis_ontology_terms.tsv
