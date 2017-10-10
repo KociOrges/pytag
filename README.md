@@ -69,7 +69,7 @@ In our scenario, we assume that we are interested to annotate our literature wit
 $ python pytag.py --input_dir path_to_BibTex_files/ --onto_types all --out_file crohn_colitis_ontology_terms.tsv
 ```
 
-As the script is running, you will be able to see which file is currently being annotated and for the references that no terms were identified in their abstract text content, a relevant message with their associated PubMed ID is shown on the command line. After a BibTex file is processed then, the total number of references, the number of availabe and annotated abstracts are mentioned for the specific file. When the execution is completed for all the BibTex files then, the total number of references processed, the total number of the annotated abstracts and the number of BibTex files annotated from the tool are also shown on the command line:
+As the script is running, in the output you should be able to see which file is currently being annotated and for the references that no terms were identified in their abstract text content, a relevant message with their associated PubMed ID is also shown on the command line. After a BibTex file is processed then, the total number of references, the number of availabe and annotated abstracts are mentioned for the specific file. When the execution is completed for all the BibTex files then, the total number of references processed, the total number of the annotated abstracts and the number of BibTex files annotated from the pipeline are also shown on the command line:
 
 ```
 $ python pytag.py --input_dir BibTex files/ --onto_types all --out_file crohn_colitis_ontology_terms.tsv
@@ -81,7 +81,16 @@ Crohn.Nutrition.2015.2016 : 676 references found in total. 603 abstracts were an
 Processing file: 2 Ulcerative.Colitis.Nutrition.2015.2016.bib
 ...
 Ulcerative.Colitis.Nutrition.2015.2016 : 463 references found in total. 424 abstracts were annotated from 443 available.
-Total annotated abstracts:  1027
 Total number of references:  1139
-Total tested samples/files:  2
+Total annotated abstracts:  1027
+Total tested files:  2
+```
+Once the pipeline has finished processing, you will have the following contents in the output folder:
+```
+$ ls
+BibTex files
+setup.py
+pytag.py
+crohn_colitis_ontology_terms.tsv
+annotation_summary.tsv
 ```
