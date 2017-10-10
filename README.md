@@ -112,7 +112,7 @@ Ulcerative.Colitis.Nutrition.2015.2016   27281309  intestine  Tissue           b
 In the annotation_summary.tsv table you will find for each BibTex file, the number of references that were found, the number of the abstracts that were available for these references and the number of the abstracts that were finally annotated. It should look like this:
 ```
 $ cat annotation_summary.tsv 
-	                        Total_number_of_references	Available_abstracts	 Annotated_abstracts
-Crohn.Nutrition.2015.2016	                       676	                630	                 603
-Ulcerative.Colitis.Nutrition.2015.2016	         463	                443	                 424
+	                        Total_number_of_references   Available_abstracts   Annotated_abstracts
+Crohn.Nutrition.2015.2016	                       676	             630	           603
+Ulcerative.Colitis.Nutrition.2015.2016	               463	             443	           424
 ```
