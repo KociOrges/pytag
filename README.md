@@ -85,7 +85,7 @@ Total number of references:  1139
 Total annotated abstracts:  1027
 Total tested files:  2
 ```
-Once the pipeline has finished processing, you will have the following contents in the output folder:
+Once the pipeline has finished processing, you will have the following contents in your home folder:
 ```
 $ ls
 BibTex files
@@ -93,4 +93,18 @@ setup.py
 pytag.py
 crohn_colitis_ontology_terms.tsv
 annotation_summary.tsv
+```
+The crohn_colitis_ontology_terms.tsv is the most interesting file and contains the ontology terms identified in the references of each BibTex file, followed with the associated PubMed ID of the abstract they were found in each case. For each term, the relevant ontology entry is mentioned followed with the associated identifier. The TSV file should look like this:
+```
+$ cat tabl.tsv 
+Crohn.Nutrition.2015.2016	26944181	pediatric crohn's disease	Disease	doid:8778
+Crohn.Nutrition.2015.2016	26742586	proteobacteria	Organism	1224
+Crohn.Nutrition.2015.2016	26742586	inflammatory response	Biological Process	go:0006954
+Crohn.Nutrition.2015.2016	26742586	e. coli	Organism	110766
+Crohn.Nutrition.2015.2016	25969456	4-cd	Chemical Compound	cids44608013
+...
+Ulcerative.Colitis.Nutrition.2015.2016	25850835	perineal	Organism	138833
+Ulcerative.Colitis.Nutrition.2015.2016	26419460	trim39	10090	ensmusp00000039790
+Ulcerative.Colitis.Nutrition.2015.2016	26419460	traf6	10116	ensrnop00000006148
+Ulcerative.Colitis.Nutrition.2015.2016	26419460	peripheral blood mononuclear cells	Tissue	bto:0001025
 ```
