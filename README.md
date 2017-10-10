@@ -51,10 +51,37 @@ Schematic of the workflow for the automated identification and analyses of ontol
 ![workflow](https://user-images.githubusercontent.com/30604050/28795721-d8093606-7632-11e7-82c1-ca86d2a7fedf.png)
 
 ## Tutorial
-We will run pyTag using some BibTex files generated from a keyword search in PubMed database. Let's say that we were interested to explore the publications related to Crohn's Disease and Ulcerative Colitis in the context of Nutrition, for the years 2015 and 2016. For that purpose, in PubMed database we have searched for the Boolean keywords: (Crohn's AND Nutrition) and (Ulcerative Colitis AND Nutrition) between 2015 and 2016, to obtain the relevant literature. For each search, we have extracted and stored the citations in external files, using the “Citation Manager” function in MEDLINE (tagged) format. Next, we have imported these files into EndNote, to export them in BibTeX format where every reference is described with an associated PubMed ID. Here, we have put the generated BibTex files for each keyword search inside the folder BibTex files/.
+We will run pyTag using some BibTex files generated from a keyword search in PubMed database. Let's say that we were interested to explore the publications related to Crohn's Disease and Ulcerative Colitis in the context of Nutrition, for the years 2015 and 2016. For that purpose, in PubMed database we have searched for the Boolean keywords: (Crohn's AND Nutrition) and (Ulcerative Colitis AND Nutrition) between 2015 and 2016, to obtain the relevant literature. For each search, we have labelled and extracted the citations in external files, using the “Citation Manager” function in MEDLINE (tagged) format. Next, we have imported these files into EndNote, to export them in BibTeX format where every reference is described with an associated PubMed ID. Here, we have put the generated BibTex files for each keyword search inside the folder BibTex files/.
 
 ```
+$ ls
+BibTex files	
+setup.py
+pytag.py
 $ ls BibTex files/
 Crohn.Nutrition.2015.2016.bib			
 Ulcerative.Colitis.Nutrition.2015.2016.bib
+```
+
+In our scenario, we assume that we are interested to annotate our literature with terms that are related to all the supported ontology types. We also define crohn_colitis_ontology_terms.tsv as the TSV file where the identified terms will be described. This can be done as follows:
+
+```
+$ python pytag.py --input_dir path_to_BibTex_files/ --onto_types all --out_file crohn_colitis_ontology_terms.tsv
+```
+
+As the script is running, you will be able to see which file is currently being annotated and for the references that no terms were identified in their abstract text content, a relevant message with their associated PubMed ID is shown on the command line. After a BibTex file is processed then, the total number of references, the number of availabe and annotated abstracts are mentioned for the specific file. When the execution is completed for all the BibTex files then, the total number of references processed, the total number of the annotated abstracts and the number of BibTex files annotated from the tool are also shown on the command line:
+
+```
+$ python pytag.py --input_dir BibTex files/ --onto_types all --out_file crohn_colitis_ontology_terms.tsv
+Processing file: 1 Crohn.Nutrition.2015.2016.bib
+no annotation for reference with PubMed ID:  26833290
+no annotation for reference with PubMed ID:  26917043
+...
+Crohn.Nutrition.2015.2016 : 676 references found in total. 603 abstracts were annotated from 630 available.
+Processing file: 2 Ulcerative.Colitis.Nutrition.2015.2016.bib
+...
+Ulcerative.Colitis.Nutrition.2015.2016 : 463 references found in total. 424 abstracts were annotated from 443 available.
+Total annotated abstracts:  1027
+Total number of references:  1139
+Total tested samples/files:  2
 ```
