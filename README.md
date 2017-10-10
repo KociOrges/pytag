@@ -51,4 +51,4 @@ Schematic of the workflow for the automated identification and analyses of ontol
 ![workflow](https://user-images.githubusercontent.com/30604050/28795721-d8093606-7632-11e7-82c1-ca86d2a7fedf.png)
 
 ## Tutorial
-
+We will run pyTag using some BibTex files generated from a keyword search in PubMed database. Let's say that we were interested for the publications related to Crohn's Disease and Ulcerative Colitis in the context of Nutrition, for the years 2015 and 2016. For that purpose, in PubMed database we have searched for the Boolean keywords: (Crohn's AND Nutrition) and (Ulcerative Colitis AND Nutrition) between 2015 and 2016, to obtain the relevant literature. For each search, we have extracted and stored the citations in external files, using the “Citation Manager” function in MEDLINE (tagged) format. Next, we have imported these files into EndNote, to export them in BibTeX format, where every reference is also described with an associated PubMed ID.  
