@@ -103,8 +103,8 @@ Crohn.Nutrition.2015.2016   26742586  inflammatory response   Biological Process
 Crohn.Nutrition.2015.2016   26742586  e. coli                 Organism             110766
 Crohn.Nutrition.2015.2016   25969456  4-cd                    Chemical Compound	   cids44608013
 ...
-Ulcerative.Colitis.Nutrition.2015.2016   25850835  perineal   Organism          138833
-Ulcerative.Colitis.Nutrition.2015.2016   26419460  trim39     Genes/Proteins	ensmusp00000039790
-Ulcerative.Colitis.Nutrition.2015.2016   26419460  traf6      Genes/Proteins	ensrnop00000006148
-Ulcerative.Colitis.Nutrition.2015.2016   27281309  intestine  Tissue	        bto:0000642
+Ulcerative.Colitis.Nutrition.2015.2016   25850835  perineal   Organism         138833
+Ulcerative.Colitis.Nutrition.2015.2016   26419460  trim39     Genes/Proteins ensmusp00000039790
+Ulcerative.Colitis.Nutrition.2015.2016   26419460  traf6      Genes/Proteins ensrnop00000006148
+Ulcerative.Colitis.Nutrition.2015.2016   27281309  intestine  Tissue	       bto:0000642
 ```
