@@ -51,7 +51,7 @@ Schematic of the workflow for the automated identification and analyses of ontol
 ![workflow](https://user-images.githubusercontent.com/30604050/28795721-d8093606-7632-11e7-82c1-ca86d2a7fedf.png)
 
 ## Tutorial
-We will run pyTag using some BibTex files generated from a keyword search in PubMed database. Let's say that we were interested to explore the publications related to Crohn's Disease and Ulcerative Colitis in the context of Nutrition, for the years 2015 and 2016. For that purpose, in PubMed database we have searched for the Boolean keywords: (Crohn's AND Nutrition) and (Ulcerative Colitis AND Nutrition) between 2015 and 2016, to obtain the relevant literature. For each search, we have labelled and extracted the citations in external files, using the “Citation Manager” function in MEDLINE (tagged) format. Next, we have imported these files into EndNote, to export them in BibTeX format where every reference is described with an associated PubMed ID. Here, we have put the generated BibTex files for each keyword search inside the folder BibTex files/.
+We will run ```pyTag``` using some BibTex files generated from a keyword search in PubMed database. Let's say that we were interested to explore the publications related to Crohn's Disease and Ulcerative Colitis in the context of Nutrition, for the years 2015 and 2016. For that purpose, in PubMed database we have searched for the Boolean keywords: ```(Crohn's AND Nutrition)``` and ```(Ulcerative Colitis AND Nutrition)``` between ```2015 and 2016```, to obtain the relevant literature. For each search, we have labelled and extracted the citations in external files, using the “Citation Manager” function in ```MEDLINE``` (tagged) format. Next, we have imported these files into ```EndNote```, to export them in BibTeX format where every reference is described with an associated PubMed ID. Here, we have put the generated BibTex files for each keyword search inside the folder BibTex files/.
 
 ```
 $ ls
@@ -66,7 +66,7 @@ Ulcerative.Colitis.Nutrition.2015.2016.bib
 In our scenario, we assume that we are interested to annotate our literature with terms that are related to all the supported ontology types. We also define crohn_colitis_ontology_terms.tsv as the TSV file where the identified terms will be described. This can be done as follows:
 
 ```
-$ python pytag.py --input_dir path_to_BibTex_files/ --onto_types all --out_file crohn_colitis_ontology_terms.tsv
+$ python pytag.py --input_dir BibTex_files/ --onto_types all --out_file crohn_colitis_ontology_terms.tsv
 ```
 
 As the script is running, in the output you should be able to see which file is currently being annotated and for the references that no terms were identified in their abstract text content, a relevant message with their associated PubMed ID is also shown on the command line. After a BibTex file is processed then, the total number of references, the number of availabe and annotated abstracts are mentioned for the specific file. When the execution is completed for all the BibTex files then, the total number of references processed, the total number of the annotated abstracts and the number of BibTex files annotated from the pipeline are also shown on the command line:
@@ -94,14 +94,14 @@ pytag.py
 crohn_colitis_ontology_terms.tsv
 annotation_summary.tsv
 ```
-The crohn_colitis_ontology_terms.tsv is the most interesting file and contains the ontology terms identified in the references of each BibTex file, followed with the associated PubMed ID of the abstract they were found in each case. For each term, the relevant ontology entry is mentioned followed with the associated identifier. The TSV file should look like this:
+The crohn_colitis_ontology_terms.tsv is the most interesting file and contains the ontology terms identified in the references of each BibTex file, followed with the associated PubMed ID of the abstract they were found in each case. For each term, the relevant ontology entry is mentioned followed with the associated identifier. The ```TSV``` file should look like this:
 ```
-$ cat tabl.tsv 
+$ cat crohn_colitis_ontology_terms.tsv
 Crohn.Nutrition.2015.2016   26944181  pediatric crohn's disease	Disease	doid:8778
-Crohn.Nutrition.2015.2016   26742586	proteobacteria	Organism	1224
-Crohn.Nutrition.2015.2016   26742586	inflammatory response	Biological Process	go:0006954
-Crohn.Nutrition.2015.2016   26742586	e. coli	Organism	110766
-Crohn.Nutrition.2015.2016   25969456	4-cd	Chemical Compound	cids44608013
+Crohn.Nutrition.2015.2016   26742586  proteobacteria	Organism	1224
+Crohn.Nutrition.2015.2016   26742586  inflammatory response	Biological Process	go:0006954
+Crohn.Nutrition.2015.2016   26742586  e. coli	Organism	110766
+Crohn.Nutrition.2015.2016   25969456  4-cd	Chemical Compound	cids44608013
 ...
 Ulcerative.Colitis.Nutrition.2015.2016   25850835  perineal	Organism	138833
 Ulcerative.Colitis.Nutrition.2015.2016   26419460  trim39	10090	ensmusp00000039790
