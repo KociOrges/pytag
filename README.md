@@ -51,8 +51,8 @@ Schematic of the workflow for the automated identification and analyses of ontol
 ![workflow](https://user-images.githubusercontent.com/30604050/28795721-d8093606-7632-11e7-82c1-ca86d2a7fedf.png)
 
 ## Tutorial
-We will run ```pyTag``` using some BibTex files generated from a keyword search in PubMed database. Let's say that we were interested to explore the publications related to Crohn's Disease and Ulcerative Colitis in the context of Nutrition, for the years 2015 and 2016. For that purpose, in PubMed database we have searched for the Boolean keywords: ```(Crohn's AND Nutrition)``` and ```(Ulcerative Colitis AND Nutrition)``` between ```2015 and 2016```, to obtain the relevant literature. For each search, we have labelled and extracted the citations in external files, using the “Citation Manager” function in ```MEDLINE``` (tagged) format. Next, we have imported these files into ```EndNote```, to export them in BibTeX format where every reference is described with an associated PubMed ID. The PubMed ID is a unique identifier used in PubMed and assigned to each article record when it enters the PubMed system. Before we run ```pyTag```, we will need to make sure that our BibTex files contain in each of their references a record called ```PMID``` or ```Accession Number``` describing this unique identifier. The references in the BibTex files should look like this:
-```diff
+We will run ```pyTag``` using some BibTex files generated from a keyword search in PubMed database. Let's say that we are interested in exploring the ontological content of the publications related to Crohn's Disease and Ulcerative Colitis in the context of Nutrition, for the years 2015 and 2016. For that purpose, in PubMed database we have searched for the Boolean keywords: ```(Crohn's AND Nutrition)``` and ```(Ulcerative Colitis AND Nutrition)``` between ```2015 and 2016```, to obtain the relevant literature. For each search, we have labelled and extracted the citations in external files, using the “Citation Manager” function in ```MEDLINE``` (tagged) format. Next, we have imported these files into ```EndNote```, to export them in BibTeX format where every reference is described with an associated PubMed ID. The PubMed ID is a unique identifier used in PubMed and assigned to each article record when it enters the PubMed system. Before we run ```pyTag```, we will need to make sure that our BibTex files contain in each of their references a record called ```PMID``` or ```Accession Number``` describing this unique identifier. The references in the BibTex files should look like this:
+```
 @article{
    title = {Latest evidence on Crohn's Disease},
    journal = {Journal},
@@ -77,7 +77,7 @@ Crohn.Nutrition.2015.2016.bib
 Ulcerative.Colitis.Nutrition.2015.2016.bib
 ```
 
-In our scenario, we assume that we are interested to annotate our literature with terms that are related to all the supported ontology types (in case we would like to specify only some particular types then we should replace parameter 'all' with the relevant numerical identifiers as described in section Usage). We also define ```crohn_colitis_ontology_terms.tsv``` as the ```TSV``` file where the identified terms will be described. This can be done as follows:
+In our scenario, we assume that we are interested in annotating our literature with terms that are related to all the supported ontology types (in case we would like to specify only some particular types then we should replace the parameter 'all' with the relevant numerical identifiers as described in section Usage). We also define ```crohn_colitis_ontology_terms.tsv``` as the ```TSV``` file where the identified terms will be described. This can be done as follows:
 
 ```
 $ python pytag.py --input_dir BibTex_files/ --onto_types all --out_file crohn_colitis_ontology_terms.tsv
@@ -123,10 +123,12 @@ Ulcerative.Colitis.Nutrition.2015.2016   26419460  traf6      Genes/Proteins   e
 Ulcerative.Colitis.Nutrition.2015.2016   27281309  intestine  Tissue           bto:0000642
 ```
 
-In the ```annotation_summary.tsv``` table you will find for each BibTex file, the number of references that were found, the number of the abstracts that were available for these references and the number of the abstracts that were finally annotated ( this information can be useful in case we need to perform statistical analysis on the metadata and we would consider e.g., the number of the annotated abstracts for normalising our frequency data obtained from the ```crohn_colitis_ontology_terms.tsv``` table). The file should look like this:
+In the ```annotation_summary.tsv``` table you will find for each BibTex file, the number of references that were found, the number of the abstracts that were available for these references and the number of the abstracts that were finally annotated. The file should look like this:
 ```
 $ cat annotation_summary.tsv 
 	                        Total_number_of_references   Available_abstracts   Annotated_abstracts
 Crohn.Nutrition.2015.2016	                       676	             630	           603
 Ulcerative.Colitis.Nutrition.2015.2016	               463	             443	           424
 ```
+
+After the steps above are completed, then we can easily import the file with the identified ontological terms into ```R software``` and generate a frequency table using the ```table()``` function to perform downstream analysis. In addition, the information provided in the ```annotation_summary.tsv```, can be useful in case we need to normalise our frequency data before doing statistics, based on e.g., the number of the annotated abstracts.
