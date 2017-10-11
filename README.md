@@ -59,8 +59,9 @@ We will run ```pyTag``` using some BibTex files generated from a keyword search 
    volume = {14},
    number = {6},
    ...
-   PMID = {27483748},```
-   ```diff
+   PMID = {27483748},
+```
+```diff
 + this text is highlighted in green
 - this text is highlighted in red
 ```
