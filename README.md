@@ -59,7 +59,7 @@ We will run ```pyTag``` using some BibTex files generated from a keyword search 
    volume = {14},
    number = {6},
    ...
-   <b>PMID = {27483748},</b> 
+   PMID = {27483748},
    DOI = {10.8902/h.kldu.2015.04.017},
    year = {2015},
    type = {Ref–rence Type}
@@ -68,7 +68,7 @@ We will run ```pyTag``` using some BibTex files generated from a keyword search 
 Here, we have put the generated BibTex files for each keyword search inside the folder BibTex files/.
 
 ```
-$ ls
+<b> $ ls</b> 
 BibTex files	
 setup.py
 pytag.py
