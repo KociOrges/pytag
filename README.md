@@ -59,13 +59,13 @@ We will run ```pyTag``` using some BibTex files generated from a keyword search 
    volume = {14},
    number = {6},
    ...
-   PMID = {27483748}, <div style="background-color:rgba(0, 0, 0, 0.0470588);"><a href="/OR Accession Number = ">OR Accession Number = {27483748}</a></div>
+   PMID = {27483748},
    DOI = {10.8902/h.kldu.2015.04.017},
    year = {2015},
    type = {Ref–rence Type}
 }
 ```
-Here, we have put the generated BibTex files for each keyword search inside the folder BibTex files/. 
+Here, we have put the generated BibTex files for each keyword search inside the folder BibTex files/. - ![#f03c15](https://placehold.it/15/f03c15/000000?text=+) `#f03c15`
 
 ```
 $ ls
