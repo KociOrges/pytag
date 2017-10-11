@@ -59,7 +59,8 @@ We will run ```pyTag``` using some BibTex files generated from a keyword search 
    volume = {14},
    number = {6},
    ...
-   PMID = {27483748}, <b> OR Accession Number = {27483748},</b>
+   PMID = {27483748},``` <b> OR Accession Number = {27483748},</b>
+```
    DOI = {10.8902/h.kldu.2015.04.017},
    year = {2015},
    type = {Ref–rence Type}
