@@ -65,7 +65,10 @@ We will run ```pyTag``` using some BibTex files generated from a keyword search 
    type = {Ref–rence Type}
 }
 ```
-Here, we have put the generated BibTex files for each keyword search inside the folder BibTex files/.  "And here's to you, <span style="background-color:green">Mrs. Robinson</span>, Jesus loves you more than you will know."
+Here, we have put the generated BibTex files for each keyword search inside the folder BibTex files/. 
+<div style="background-color:rgba(0, 0, 0, 0.0470588); text-align:center; vertical-align: middle; padding:40px 0;">
+ <a href="/donate">DONATE</a>
+ </div>
 
 ```
 $ ls
