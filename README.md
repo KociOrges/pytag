@@ -53,19 +53,20 @@ Schematic of the workflow for the automated identification and analyses of ontol
 ## Tutorial
 We will run ```pyTag``` using some BibTex files generated from a keyword search in PubMed database. Let's say that we were interested to explore the publications related to Crohn's Disease and Ulcerative Colitis in the context of Nutrition, for the years 2015 and 2016. For that purpose, in PubMed database we have searched for the Boolean keywords: ```(Crohn's AND Nutrition)``` and ```(Ulcerative Colitis AND Nutrition)``` between ```2015 and 2016```, to obtain the relevant literature. For each search, we have labelled and extracted the citations in external files, using the “Citation Manager” function in ```MEDLINE``` (tagged) format. Next, we have imported these files into ```EndNote```, to export them in BibTeX format where every reference is described with an associated PubMed ID. The PubMed ID is a unique identifier used in PubMed and assigned to each article record when it enters the PubMed system. Before we run ```pyTag```, we will need to make sure that our BibTex files contain in each of their references a record called ```PMID``` or ```Accession Number``` describing this unique identifier. The references in the BibTex files should look like this:
 ```
+diff
 @article{
    title = {Latest evidence on Crohn's Disease},
    journal = {Journal},
    volume = {14},
    number = {6},
    ...
-   PMID = {27483748},
+   + PMID = {27483748},
    DOI = {10.8902/h.kldu.2015.04.017},
    year = {2015},
    type = {Ref–rence Type}
 }
 ```
-Here, we have put the generated BibTex files for each keyword search inside the folder BibTex files/. - ![#f03c15](https://placehold.it/15/f03c15/000000?text=+) `#f03c15`
+Here, we have put the generated BibTex files for each keyword search inside the folder BibTex files/. 
 
 ```
 $ ls
