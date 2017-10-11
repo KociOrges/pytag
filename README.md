@@ -59,7 +59,7 @@ We will run ```pyTag``` using some BibTex files generated from a keyword search 
    volume = {14},
    number = {6},
    ...
-   + PMID = {27483748},
+   - PMID = {27483748},
    DOI = {10.8902/h.kldu.2015.04.017},
    year = {2015},
    type = {Ref–rence Type}
