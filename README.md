@@ -69,10 +69,10 @@ We will run ```pytag``` using some BibTex files generated from a keyword search 
    type = {Ref–rence Type}
 }
 ```
-Here, we have put the generated BibTex files for each keyword searched inside the folder BibTex files/. 
+Here, we have put the generated BibTex files for each keyword searched inside the folder BibTex_files/. 
 
 ```
-$ ls BibTex files/
+$ ls BibTex_files/
 Crohn.Nutrition.2015.2016.bib			
 Ulcerative.Colitis.Nutrition.2015.2016.bib
 ```
@@ -102,7 +102,7 @@ Total tested files:  2
 Once the pipeline has finished processing, you will have the following contents in your home folder:
 ```
 $ ls
-BibTex files
+BibTex_files
 crohn_colitis_ontology_terms.tsv
 annotation_summary.tsv
 ```
