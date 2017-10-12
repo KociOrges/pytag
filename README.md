@@ -125,8 +125,8 @@ In the ```annotation_summary.tsv``` table you will find for each BibTex file, th
 ```
 $ cat annotation_summary.tsv 
 	                        Total_number_of_references   Available_abstracts   Annotated_abstracts
-Crohn.Nutrition.2015.2016	                       676	             630	           603
-Ulcerative.Colitis.Nutrition.2015.2016	               463	             443	           424
+Crohn.Nutrition.2015.2016	                       676	             630	           607
+Ulcerative.Colitis.Nutrition.2015.2016	               463	             443	           429
 ```
 
 After the steps above are completed, then we can easily import the file with the identified ontological terms into ```R software``` and generate a frequency table using the ```table()``` function to perform downstream analysis. In addition, in case we desire to assess temporal changes in literature from multiple keywords in a longitudinal setting, then the information provided in the ```annotation_summary.tsv``` can be useful in case we need to normalise our frequency data before doing statistics, based on e.g., the number of the annotated abstracts.
