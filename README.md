@@ -38,7 +38,7 @@ You can also specify the ontology/ies that you want to utilise for your annotati
 * ```-26```: ```Disease Ontology``` terms
 * ```-27```: ```Environment Ontology``` terms
 
-For example, let's say that you would like to identify the *Environment*, *Tissue* and *Disease* mentions in your BibTex files. This can be done as follows (the order of the numerical identifiers is irrelevant):
+For example, let's say that you would like to identify the *Environmental*, *Tissue* and *Disease* mentions in your BibTex files. This can be done as follows (the order of the numerical identifiers is irrelevant):
 
 ```
 $ pytag --input_dir path_to_BibTex_files/ --onto_types -27 -25 -26 --out_file ontology_terms.tsv
