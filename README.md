@@ -1,4 +1,4 @@
-# ```pyTag```
+# ```pytag```
 Automated identification of ontological terms in application area specific literature surveys
 ```diff
 - Please note that the repository for this project is still under construction!
@@ -6,20 +6,24 @@ Automated identification of ontological terms in application area specific liter
 
 ## Dependencies
 - You will need python version 3.4.0 or newer versions to execute the software.
-- The project also depends on some other modules such as ```bibtexparser 0.6.2``` for parsing the BibTex files and the ```Inflect 0.2.5``` package to check for words in plural form. Happily, these will be installed automatically when using the install command below.
+- The project also depends on some other modules such as ```bibtexparser 0.6.2``` for parsing the BibTex files and the ```Inflect 0.2.5``` package to check for words in plural form. Happily, these will be installed automatically when using the pip command below.
 - We use EXTRACT (http://extract.jensenlab.org/), a custom named entity recognition (NER) system to annotate the text contets with ontological terms.
 
 ## Installing
-To install ```pyTag```  onto your machine, use the setup.py file:
+To install ```pytag```  onto your machine, use the python package manager:
 ```
-$ python setup.py install
+$ pip install pytag==1.0
+```
+In case the above command doesn't work, try using the full url to download and install the software:
+```
+$ pip install https://github.com/KociOrges/pytag/archive/1.0.tar.gz
 ```
 
 ## Usage
 Once that is done, you can start annotating BibTex files from the command line. We will assume that you already have the BibTex files that you want to annotate in the directory ```path_to_BibTex_files/```. We will also assume that you want to identify terms from all the supported ontologies for your annotation. The identified terms are then described in the ```TSV``` table ```ontology_terms.tsv```. This can be done as follows:
 
 ```
-$ python pytag.py --input_dir path_to_BibTex_files/ --onto_types all --out_file ontology_terms.tsv
+$ pytag --input_dir path_to_BibTex_files/ --onto_types all --out_file ontology_terms.tsv
 ```
 
 ### All parameters
@@ -37,7 +41,7 @@ You can also specify the ontology/ies that you want to utilise for your annotati
 For example, let's say that you would like to identify the *Environment*, *Tissue* and *Disease* mentions in your BibTex files. This can be done as follows (the order of the numerical identifiers is irrelevant):
 
 ```
-$ python pytag.py --input_dir path_to_BibTex_files/ --onto_types -27 -25 -26 --out_file ontology_terms.tsv
+$ pytag --input_dir path_to_BibTex_files/ --onto_types -27 -25 -26 --out_file ontology_terms.tsv
 ```
 
 ## What does it do exactly?
@@ -51,7 +55,7 @@ Schematic of the workflow for the automated identification and analyses of ontol
 ![workflow](https://user-images.githubusercontent.com/30604050/28795721-d8093606-7632-11e7-82c1-ca86d2a7fedf.png)
 
 ## Tutorial
-We will run ```pyTag``` using some BibTex files generated from a keyword search in PubMed database. Let's say that we are interested in exploring the ontological content of the publications related to Crohn's Disease and Ulcerative Colitis in the context of Nutrition, for the years 2015 and 2016. For that purpose, in PubMed database we have searched for the Boolean keywords: ```(Crohn's AND Nutrition)``` and ```(Ulcerative Colitis AND Nutrition)``` between ```2015 and 2016```, to obtain the relevant literature. For each search, we have labelled and extracted the citations in external files, using the “Citation Manager” function in ```MEDLINE``` (tagged) format. Next, we have imported these files into ```EndNote```, to export them in BibTeX format where every reference is described with an associated PubMed ID. The PubMed ID is a unique identifier used in PubMed and assigned to each article record when it enters the PubMed system. **Before we run ```pyTag```, we will need to make sure that our BibTex files contain in each of their references a record called ```PMID``` or ```Accession Number``` describing this unique identifier. The references in the BibTex files should look like this:**
+We will run ```pytag``` using some BibTex files generated from a keyword search in PubMed database. Let's say that we are interested in exploring the ontological content of the publications related to Crohn's Disease and Ulcerative Colitis in the context of Nutrition, for the years 2015 and 2016. For that purpose, in PubMed database we have searched for the Boolean keywords: ```(Crohn's AND Nutrition)``` and ```(Ulcerative Colitis AND Nutrition)``` between ```2015 and 2016```, to obtain the relevant literature. For each search, we have labelled and extracted the citations in external files, using the “Citation Manager” function in ```MEDLINE``` (tagged) format. Next, we have imported these files into ```EndNote```, to export them in BibTeX format where every reference is described with an associated PubMed ID. The PubMed ID is a unique identifier used in PubMed and assigned to each article record when it enters the PubMed system. **Before we run ```pytag```, we will need to make sure that our BibTex files contain in each of their references a record called ```PMID``` or ```Accession Number``` describing this unique identifier. The references in the BibTex files should look like this:**
 ```
 @article{
    title = {Latest evidence on Crohn's Disease},
@@ -80,7 +84,7 @@ Ulcerative.Colitis.Nutrition.2015.2016.bib
 In our scenario, we assume that we are interested in annotating our literature with terms that are related to all the supported ontology types (in case we would like to specify only some particular types then we should replace the parameter 'all' with the relevant numerical identifiers as described in section Usage). We also define ```crohn_colitis_ontology_terms.tsv``` as the ```TSV``` file where the identified terms will be described. This can be done as follows:
 
 ```
-$ python pytag.py --input_dir BibTex_files/ --onto_types all --out_file crohn_colitis_ontology_terms.tsv
+$ pytag --input_dir BibTex_files/ --onto_types all --out_file crohn_colitis_ontology_terms.tsv
 ```
 
 As the script is running, in the output you should be able to see which file is currently being annotated and for the references that no terms were identified in their abstract text content, a relevant message with their associated PubMed ID is also shown on the command line. After a BibTex file is processed, then the total number of references, the number of availabe and annotated abstracts are mentioned for the specific file. When the execution is completed for all the BibTex files, then the total number of references processed, the total number of the annotated abstracts and the number of BibTex files annotated from the pipeline are also shown on the command line:
