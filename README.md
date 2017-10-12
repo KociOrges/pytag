@@ -91,12 +91,12 @@ Processing file: 1 Crohn.Nutrition.2015.2016.bib
 no annotation for reference with PubMed ID:  26833290
 no annotation for reference with PubMed ID:  26917043
 ...
-Crohn.Nutrition.2015.2016 : 676 references found in total. 603 abstracts were annotated from 630 available.
+Crohn.Nutrition.2015.2016 : 676 references found in total. 607 abstracts were annotated from 630 available.
 Processing file: 2 Ulcerative.Colitis.Nutrition.2015.2016.bib
 ...
-Ulcerative.Colitis.Nutrition.2015.2016 : 463 references found in total. 424 abstracts were annotated from 443 available.
+Ulcerative.Colitis.Nutrition.2015.2016 : 463 references found in total. 429 abstracts were annotated from 443 available.
 Total number of references:  1139
-Total annotated abstracts:  1027
+Total annotated abstracts:  1036
 Total tested files:  2
 ```
 Once the pipeline has finished processing, you will have the following contents in your home folder:
