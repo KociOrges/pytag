@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 
 setup(
 	name		= 'pytag',
-        version		= '0.1.0',
+        version		= '1.0.0',
         package		= 'pytag',
 	description	= 'Identification of ontological terms in application area specific literature surveys',
         author          = 'Koci Orges',
@@ -10,7 +10,7 @@ setup(
         packages         = find_packages(),
 	install_requires = ['bibtexparser', 'inflect'],
         url             = 'https://github.com/KociOrges/pyTag',
-        download_url = 'https://github.com/KociOrges/pyTag/archive/0.1.0.tar.gz',
+        download_url = 'https://github.com/KociOrges/pyTag/archive/1.0.0.tar.gz',
 	entry_points    = {
 	  'console_scripts': [
 	      'pytag = pytag.pytag:main'
