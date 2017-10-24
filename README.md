@@ -22,8 +22,8 @@ If these commands still don't work, you might be missing the pip program on your
 
 By default, ```pytag``` will be installed in the ```site-packages``` directory. For this reason, you need to set your ```$PATH``` appropriately so that the software can be executed. Make sure that you have the following paths in your ```$PATH```:
 ```
-/.pyenv/versions/3.X.Y/lib/python3.X/site-packages
-/.pyenv/versions/3.X.Y/bin
+/.pyenv/versions/3.X(>=4).Y/lib/python3.X/site-packages
+/.pyenv/versions/3.X(>=4).Y/bin
 ```
 
 
