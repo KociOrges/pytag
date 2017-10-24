@@ -18,6 +18,14 @@ In case the above command doesn't work, try using the full url to download and i
 ```
 $ pip install https://github.com/KociOrges/pytag/archive/1.0.tar.gz
 ```
+If these commands still don't work, you might be missing the pip program on your system or the correct version of Python (any version 2.7.x). You can get both of these things by using using this little project: https://github.com/yyuu/pyenv
+
+By default, ```pytag``` will be installed in the ```site-packages``` directory. For this reason, you need to set your ```$PATH``` appropriately so that the software can be executed. Make sure that you have that you have the following paths in your ```$PATH```:
+```
+/.pyenv/versions/3.X.Y/lib/python3.X/site-packages
+/.pyenv/versions/3.X.Y/bin
+```
+
 
 ## Usage
 Once that is done, you can start annotating BibTex files from the command line. We will assume that you already have the BibTex files that you want to annotate in the directory ```path_to_BibTex_files/```. We will also assume that you want to identify terms utilizing all the supported ontologies for your annotation. The identified terms are then described in the ```TSV``` table ```ontology_terms.tsv```. This can be done as follows:
