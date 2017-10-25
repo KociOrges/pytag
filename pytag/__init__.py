@@ -7,8 +7,8 @@ version_string = "pytag version %s" % __version__
 
 # Internal modules #
 __all__ = ['analysis', 'annotation', 'ontologies']
-from pytag.analysis import process
-from pytag.annotation import annotate_abstract
-from pytag.ontologies import extract_terms
+from pytag.analysis import *
+from pytag.annotation import *
+from pytag.ontologies import *
 
 
