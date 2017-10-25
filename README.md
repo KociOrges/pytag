@@ -12,11 +12,11 @@ Automated identification of ontological terms in application area specific liter
 ## Installing
 To install ```pytag```  onto your machine, use the python package manager:
 ```
-$ pip install pytag==1.0
+$ pip install pytag==1.0.0
 ```
 In case the above command doesn't work, try using the full url to download and install the software:
 ```
-$ pip install https://github.com/KociOrges/pytag/archive/1.0.tar.gz
+$ pip install https://github.com/KociOrges/pytag/archive/1.0.0.tar.gz
 ```
 If these commands still don't work, you might be missing the pip program on your system or the correct version of Python (any version 3.4.X or newer). You can get both of these things by using using this little project: https://github.com/yyuu/pyenv
 
