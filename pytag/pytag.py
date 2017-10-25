@@ -24,8 +24,7 @@ def main():
                             + "-25:BRENDA Tissue Ontology terms,"
                             + "-26:Disease Ontology terms,"
                             + "-27:Environment Ontology terms,"
-                            + "all:Select all types"
-          
+                            + "all:Select all types"    
       }
 
       onto_types_choices=['0',
@@ -73,8 +72,6 @@ def form_entity_types(ontotypes):
                         ent_type_plus = ent_type_plus + '+'.strip() + ent_type.strip()
 
       return ent_type_plus
-
-
-                     
+                  
 if __name__ == '__main__':
    main()
