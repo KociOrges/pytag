@@ -52,7 +52,8 @@ $ pytag --input_dir path_to_BibTex_files/ --onto_types -27 -25 -26 --out_file on
 ```
 
 ## What does it do exactly?
-Starting from a keyword search in PubMed database, the returned abstracts can be extracted and then imported into a citation management software, such as EndNote (http://endnote.com/). Next, they are exported in BibTeX format, where every reference is annotated with a number of records including PubMed IDs. In pyTag pipeline, for each PubMed ID described in the BibTex files, the associated link in NCBI database is followed and the relevant abstract is extracted. Next, these abstracts are processed using a custom named entity recognition (NER) system called EXTRACT. The system supports multiple ontologies and can list the *Genes/Proteins*, *PubChem Compounds*, *Environmental Ontology*, *NCBI Taxonomy*, *BRENDA Tissue Ontology*, *Disease Ontology*, and *Gene Ontology (biological process, cellular component, and molecular function)* in a given piece of text. After the collection and the annotation of the total number of abstracts is performed, a table describing the identified ontological terms is generated, which can next be subjected to statistical analysis for further exploration. 
+Starting from a keyword search in PubMed database, the returned abstracts can be extracted and then imported into a citation management software, such as EndNote (http://endnote.com/). Next, they are exported in BibTeX format, where every reference is annotated with a number of records including PubMed IDs. In pyTag pipeline, for each PubMed ID described in the BibTex files, the associated link in NCBI database is followed and the relevant abstract is extracted. Next, these abstracts are processed using a custom named entity recognition (NER) system called EXTRACT. The system supports multiple ontologies and can list the
+*genes/proteins* [1,2], *chemical compounds* (https://pubchem.ncbi.nlm.nih.gov/), *environments* [3], *organisms* [4], *tissues* [5], *diseases* [6] and *Gene Ontology (biological process, cellular component, and molecular function)* [7] mentions in a given piece of text. After the collection and the annotation of the total number of abstracts is performed, a table describing the identified ontological terms is generated, which can next be subjected to statistical analysis for further exploration. 
 
 ## Why make this?
 The volume of biomedical literature in electronic format has grown exponentially over the past few years. To explore this huge amount of data to reveal hidden patterns, there is a need to use automated textmining tools that can elucidate useful insights provided if the information is available in a structured format. With ontology-driven annotation of biomedical data gaining popularity in recent years and online databases offering metatags with rich textual information, it is now possible to textmine ontological terms and explore these aspects through downstream statistical analysis. The automated interpretation of literature data offered from ```pytag```, can reduce the amount of information to manageable set of deducable patterns from which it is easier to draw conclusions and can be helpful for systematic reviews. 
@@ -137,3 +138,20 @@ Ulcerative.Colitis.Nutrition.2015.2016	               463	             443	     
 ```
 
 After the steps above are completed, then we can easily import the file with the identified ontological terms into ```R software``` and generate a frequency table using the ```table()``` function to perform downstream analysis. In addition, in case we desire to assess temporal changes in literature from multiple keywords in a longitudinal setting, then the information provided in the ```annotation_summary.tsv``` can be useful in case we need to normalise our frequency data before doing statistics, based on e.g., the number of the annotated abstracts.
+
+
+## References
+1.	The STRING database in 2017: quality-controlled protein-protein association. Nucleic Acids Res., 45, D362–D368. Junge,A., Refsgaard,,J.C., Garde,C. et al. (2017). 
+
+2.	RAIN: RNA– protein Association and Interaction Networks. Database, 2017, baw167.
+
+3.	Buttigieg PL, Morrison N, Smith B et al. (2013) The environment ontology: contextualising biological and biomedical entities. J. Biomed. Semant., 4, 43
+
+4.	The NBCI Taxonomy Database: http://www.ncbi.nlm.nih.gov/taxonomy.
+
+5.	Chang A, Schomburg I, Placzek S et al. (2015) BRENDA in 2015: exciting developments in its 25th year of existence. Nucleic Acids Res., 43, D439–D446.
+
+6.	Kibbe WA, Arze C, Felix V et al. (2015) Disease Ontology 2015 update: an expanded and updated database of human diseases for linking biomedical knowledge through disease data. Nucleic Acids Res., 43, D1071–D1078. 
+
+7.	Ashburner M, Ball CA, Blake JA et al. (2000) Gene ontology: tool for the unification of biology. The Gene Ontology Consortium. Nat. Genet., 25, 25–29.
+
