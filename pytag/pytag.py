@@ -12,7 +12,7 @@ def main():
       parser = argparse.ArgumentParser(description='This is a pipeline to annotate PubMed literature data with ontological terms.')
       parser.add_argument('--input_dir', help='The BibTex/txt file/s to process in the specified directory.', required=True)
 
-      # Available choices and help description#
+      # Available choices and help description #
       onto_types_parameters = {
           "--onto_types" : "The ontologies to be used for annotation."
                             + " 0:Genes/Proteins,"
