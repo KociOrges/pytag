@@ -7,6 +7,6 @@ version_string = "pytag version %s" % __version__
 
 # Internal modules #
 __all__ = ['analysis', 'annotation', 'ontologies']
-from trytouploadhelloworld.analysis import process
+from trytouploadhelloworld.analysis import Analysis
 from trytouploadhelloworld.annotation import *
 from trytouploadhelloworld.ontologies import *
