@@ -2,7 +2,7 @@ b'This module needs Python 3.4.0 or newer'
 
 # Special variables #
 __version__ = '1.0.0'
-version_string = "trytouploadhelloworld version %s" % __version__
+version_string = "pytag version %s" % __version__
 
 
 # Internal modules #
