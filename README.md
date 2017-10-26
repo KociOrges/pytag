@@ -104,8 +104,8 @@ Processing file: 2 Ulcerative.Colitis.Nutrition.2015.2016.bib
 ...
 Ulcerative.Colitis.Nutrition.2015.2016 : 463 references found in total. 429 abstracts were annotated from 443 available.
 Total number of references:  1139
-Total annotated abstracts:  1036
-Total tested files:  2
+Total number of annotated abstracts:  1036
+Total number of BibTex files:  2
 ```
 Once the pipeline has finished processing, you will have the following contents in your home folder:
 ```
