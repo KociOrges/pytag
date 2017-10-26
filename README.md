@@ -76,7 +76,7 @@ We will run ```pytag``` using some BibTex files generated from a keyword search 
    Pubmed ID = {27483748}, 
    DOI = {10.8902/h.kldu.2015.04.017},
    year = {2015},
-   type = {Ref–rence Type}
+   type = {Reference Type}
 }
 *The details of the article are all fake. This example just describes how BibTex files should look like before processing.
 ```
