@@ -61,7 +61,7 @@ The volume of biomedical literature in electronic format has grown exponentially
 Schematic of the workflow for the automated identification and analyses of ontological terms in literature data: 
 ![workflow-1 2](https://user-images.githubusercontent.com/30604050/32061121-afc9e9c2-ba68-11e7-88b4-c76c3caa9fa3.png)
 
-Schematic overview of the ```pytag``` internal pipeline structure:
+Schematic overview of ```pytag``` internal pipeline structure:
 ![pytag_internal-1](https://user-images.githubusercontent.com/30604050/32077776-7ab6b86c-ba9c-11e7-8be8-b8308310b4b2.png)
 
 ## Tutorial
