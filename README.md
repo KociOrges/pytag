@@ -75,6 +75,7 @@ We will run ```pytag``` using some BibTex files generated from a keyword search 
    year = {2015},
    type = {Ref–rence Type}
 }
+*The details of the aticle are all fake. This example just describes how BibTex files should look like before processing
 ```
 Here, we have put the generated BibTex files for each keyword searched inside the folder BibTex_files/. 
 
