@@ -98,7 +98,7 @@ class Analysis(object):
 
                                             # Labels used to locate the required records #
                                             find_ac_num = "'accession number':"
-                                            find_pmid = "'pmid':"
+                                            find_pmid = "'pubmed id':"
                                             find_abstract = "'abstract':"
                                             address = ''
                                             abstract = ''
@@ -108,7 +108,7 @@ class Analysis(object):
                                                   pmid = el["accession number"]
                                                   address = 'http://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=pubmed&id='+pmid+'&retmode=xml'
                                             elif(find_pmid in records_refer):
-                                                  pmid = el["pmid"]
+                                                  pmid = el["pubmed id"]
                                                   address = 'http://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=pubmed&id='+pmid+'&retmode=xml'
                                             
                                             if address:
