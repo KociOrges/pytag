@@ -58,7 +58,7 @@ Starting from a keyword search in PubMed database, the returned abstracts can be
 The volume of biomedical literature in electronic format has grown exponentially over the past few years. To explore this huge amount of data to reveal hidden patterns, there is a need to use automated textmining tools that can elucidate useful insights provided if the information is available in a structured format. With ontology-driven annotation of biomedical data gaining popularity in recent years and online databases offering metatags with rich textual information, it is now possible to textmine ontological terms and explore these aspects through downstream statistical analysis. The automated interpretation of literature data offered from ```pytag```, can reduce the amount of information to manageable set of deducable patterns from which it is easier to draw conclusions and can be helpful for systematic reviews. 
 
 ## Pipeline overview
-Schematic of the workflow for the automated identification and analyses of ontological terms in literature data: 
+Schematic of the workflow for the automated identification and analyses of ontological terms in literature data using ```pytag```: 
 ![workflow2-1](https://user-images.githubusercontent.com/30604050/32084417-e75e4d6c-bac0-11e7-9f23-00cfa7022aaa.png)
 
 Schematic overview of ```pytag``` internal pipeline structure:
