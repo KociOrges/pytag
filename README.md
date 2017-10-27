@@ -59,11 +59,10 @@ The volume of biomedical literature in electronic format has grown exponentially
 
 ## Pipeline overview
 Schematic of the workflow for the automated identification and analyses of ontological terms in literature data: 
-![workflow2-1](https://user-images.githubusercontent.com/30604050/32084228-c50178da-babf-11e7-955e-30096d420ff7.png)
+![workflow2-1](https://user-images.githubusercontent.com/30604050/32084417-e75e4d6c-bac0-11e7-9f23-00cfa7022aaa.png)
 
 Schematic overview of ```pytag``` internal pipeline structure:
-![pytag_internal-1](https://user-images.githubusercontent.com/30604050/32084232-c8fb89a8-babf-11e7-9d6e-b1e981781ed3.png)
-
+![pytag_internal-1](https://user-images.githubusercontent.com/30604050/32084416-e73e7ece-bac0-11e7-9e54-ed0b3070ed0b.png)
 
 ## Tutorial
 We will run ```pytag``` using some BibTex files generated from a keyword search in PubMed database. Let's say that we are interested in exploring the content of ontological terms for the publications related to Crohn's Disease and Ulcerative Colitis in the context of Nutrition, for the years 2015 and 2016. For that purpose, in PubMed database we have searched for the Boolean keywords: ```(Crohn's AND Nutrition)``` and ```(Ulcerative Colitis AND Nutrition)``` between ```2015 and 2016```, to obtain the relevant literature. For each search, we have labelled and extracted the citations in external files, using the “Citation Manager” function in ```MEDLINE``` (tagged) format. Next, we have imported these files into ```EndNote```, to export them in BibTeX format where every reference is described with an associated PubMed ID. The PubMed ID is a unique identifier used in PubMed and assigned to each article record when it enters the PubMed system. **Before we run ```pytag```, we will need to make sure that our BibTex files contain in each of their references a record called ```Pubmed ID``` or ```Accession Number``` describing this unique identifier**. You can find a tutorial on how to edit the bibliographic styles in ```EndNote``` [here](http://libguides.usd.edu/content.php?pid=63203&sid=755800). **The references in the BibTex files should look like this:** 
