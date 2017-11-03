@@ -99,8 +99,8 @@ As the script is running, in the output you should be able to see which file is 
 ```
 $ pytag --input_dir BibTex_files/ --onto_types all --out_file crohn_colitis_ontology_terms.tsv
 Processing file: 1 Crohn.Nutrition.2015.2016.bib
-no annotation for reference with PubMed ID:  26833290
-no annotation for reference with PubMed ID:  26917043
+no annotation for reference with Pubmed ID:  26833290
+no annotation for reference with Pubmed ID:  26917043
 ...
 Crohn.Nutrition.2015.2016 : 676 references found in total. 607 abstracts were annotated from 630 available.
 Processing file: 2 Ulcerative.Colitis.Nutrition.2015.2016.bib
