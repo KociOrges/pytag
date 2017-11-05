@@ -5,24 +5,24 @@ Automated identification of ontological terms in application area specific liter
 ```
 
 ## Dependencies
-- You will need python version 3.4.0 or newer versions to execute the software.
+- You will need python version 3.4.2 or newer versions to execute the software.
 - The project also depends on some other modules such as ```bibtexparser 0.6.2``` and ```Inflect 0.2.5```. Happily, these will be installed automatically when using the pip command below.
 - We use [EXTRACT](http://extract.jensenlab.org/), a custom named entity recognition (NER) system to annotate the text contets with ontological terms.
 
 ## Installing
 To install ```pytag```  onto your machine, use the python package manager:
 ```
-$ pip install pytag==1.0.0
+$ pip install pytag==0.1.0
 ```
 In case the above command doesn't work, try using the full url to download and install the software:
 ```
-$ pip install https://github.com/KociOrges/pytag/archive/1.0.0.tar.gz
+$ pip install https://github.com/KociOrges/pytag/archive/0.1.0.tar.gz
 ```
-If these commands still don't work, you might be missing the pip program on your system or the correct version of Python (any version 3.4.X or newer). You can get both of these things by using using this little project: https://github.com/yyuu/pyenv
+If these commands still don't work, you might be missing the pip program on your system or the correct version of Python (any version 3.4.2 or newer). You can get both of these things by using using this little project: https://github.com/yyuu/pyenv
 
 By default, ```pytag``` will be installed in the ```site-packages``` and ```bin``` directory of your python version. For this reason, you need to set your ```$PATH``` appropriately so that the software can be executed. Make sure that you have the following path added in your ```$PATH```:
 ```
-/.pyenv/versions/3.X(>=4).Y/bin
+/.pyenv/versions/3.X(>=4).Y(>=2)/bin
 ```
 
 
