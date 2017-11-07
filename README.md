@@ -11,6 +11,7 @@ Automated identification of ontological terms in application area specific liter
 
 ## Installing
 **Step 1: Cloning the repository**
+
 Here you will download a copy of the code and place it somewhere in your home directory.
 ```
 $ mkdir repos
@@ -23,6 +24,7 @@ $ cd pytag
 $ python setup.py install
 ```
 **Step 3: Modify your search paths**
+
 By default, ```pytag``` will be installed in the ```site-packages``` and ```bin``` directory of your python version. For this reason, you need to set your ```$PATH``` appropriately so that the software can be executed. Make sure that you have the following path added in your ```$PATH```:
 ```
 /.pyenv/versions/3.X(>=4).Y(>=2)/bin
