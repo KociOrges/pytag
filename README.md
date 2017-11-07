@@ -12,7 +12,7 @@ Automated identification of ontological terms in application area specific liter
 ## Installing
 **Step 1: Cloning the repository**
 
-Here you will download a copy of the code and place it somewhere in your home directory.
+Here you will download a copy of the code and place it somewhere in your directory.
 ```
 $ mkdir repos
 $ cd repos
