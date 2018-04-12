@@ -41,7 +41,7 @@ $ pytag --input_dir path_to_BibTex_files/ --onto_types all --out_file ontology_t
 ### All parameters
 You can also specify the ontology/ies that you want to utilise for your annotation by using the associated numerical identifiers as decribed below:
 * ```0```: ```Genes/proteins``` from the specified organism
-* ```-1```: ```Small Molecule Compounds``` identifiers
+* ```-1```: ```Small Molecule Compound``` identifiers
 * ```-2```: ```NCBI Taxonomy``` entries
 * ```-21```: ```Gene Ontology biological process``` terms
 * ```-22```: ```Gene Ontology cellular component``` terms
@@ -85,10 +85,10 @@ We will run ```pytag``` using some BibTex files generated from a keyword search 
 }
 *The details of the article are all fake. This example just describes how BibTex files should look like before processing.
 ```
-Here, we have put the generated BibTex files for each keyword searched inside the folder BibTex_files/. 
+Here, we have put some example generated BibTex files for each keyword searched inside the folder bibtex_example/. 
 
 ```
-$ ls BibTex_files/
+$ ls bibtex_example/
 Crohn.Nutrition.2015.2016.bib			
 Ulcerative.Colitis.Nutrition.2015.2016.bib
 ```
@@ -96,13 +96,13 @@ Ulcerative.Colitis.Nutrition.2015.2016.bib
 In our scenario, we assume that we are interested in annotating our literature with terms that are related to all the supported ontology types (in case we would like to specify only some particular types then we should replace the parameter 'all' with the relevant numerical identifiers as described in section Usage). We also define ```crohn_colitis_ontology_terms.tsv``` as the ```TSV``` file where the identified terms will be described. This can be done as follows:
 
 ```
-$ pytag --input_dir BibTex_files/ --onto_types all --out_file crohn_colitis_ontology_terms.tsv
+$ pytag --input_dir bibtex_example/ --onto_types all --out_file crohn_colitis_ontology_terms.tsv
 ```
 
 As the script is running, in the output you should be able to see which file is currently being annotated and for the references that no terms were identified in their abstract text content, a relevant message with their associated PubMed ID is also shown on the command line. After a BibTex file is processed, then the total number of references, the number of availabe and annotated abstracts are mentioned for the specific file. When the execution is completed for all the BibTex files, then the total number of references processed, the total number of the annotated abstracts and the number of BibTex files annotated from the pipeline are also shown on the command line:
 
 ```
-$ pytag --input_dir BibTex_files/ --onto_types all --out_file crohn_colitis_ontology_terms.tsv
+$ pytag --input_dir bibtex_example/ --onto_types all --out_file crohn_colitis_ontology_terms.tsv
 Processing file: 1 Crohn.Nutrition.2015.2016.bib
 no annotation for reference with Pubmed ID:  26833290
 no annotation for reference with Pubmed ID:  26917043
@@ -118,7 +118,8 @@ Total number of BibTex files:  2
 Once the pipeline has finished processing, you will have the following contents in your home folder:
 ```
 $ ls
-BibTex_files
+bibtex_example
+bibtex_files
 crohn_colitis_ontology_terms.tsv
 annotation_summary.tsv
 ```
