@@ -7,7 +7,7 @@ Automated identification of ontological terms in application area specific liter
 ## Dependencies
 - You will need python version 3.4.2 or newer versions to execute the software.
 - The project also depends on some other modules such as ```bibtexparser 0.6.2``` and ```Inflect 0.2.5```. Happily, these will be installed automatically when following the commands below.
-- We use [EXTRACT](http://extract.jensenlab.org/), a custom named entity recognition (NER) system to annotate the text contets with ontological terms.
+- We use [EXTRACT 2.0](http://extract.jensenlab.org/), a custom named entity recognition (NER) system to annotate the text contets with ontological terms.
 
 ## Installing
 **Step 1: Cloning the repository**
@@ -41,7 +41,7 @@ $ pytag --input_dir path_to_BibTex_files/ --onto_types all --out_file ontology_t
 ### All parameters
 You can also specify the ontology/ies that you want to utilise for your annotation by using the associated numerical identifiers as decribed below:
 * ```0```: ```Genes/proteins``` from the specified organism
-* ```-1```: ```PubChem Compound``` identifiers
+* ```-1```: ```Small Molecule Compounds``` identifiers
 * ```-2```: ```NCBI Taxonomy``` entries
 * ```-21```: ```Gene Ontology biological process``` terms
 * ```-22```: ```Gene Ontology cellular component``` terms
@@ -57,7 +57,7 @@ $ pytag --input_dir path_to_BibTex_files/ --onto_types -27 -25 -26 --out_file on
 ```
 
 ## What does it do exactly?
-Starting from a keyword search in PubMed database, the returned abstracts can be extracted and then imported into a citation management software, such as [EndNote](http://endnote.com/). Next, they are exported in BibTeX format, where every reference is annotated with a number of records including PubMed IDs. In pyTag pipeline, for each PubMed ID described in the BibTex files, the associated link in NCBI database is followed and the relevant abstract is extracted. Next, these abstracts are processed using a custom named entity recognition (NER) system called [EXTRACT](http://extract.jensenlab.org/). The system supports multiple ontologies and can recover the genes/proteins, chemical compounds, organisms, environments, tissues, diseases, phenotypes and Gene Ontology terms in a given piece of text. After the collection and the annotation of the total number of abstracts is performed, a table describing the identified ontological terms is generated, which can next be subjected to statistical analysis for further exploration. 
+Starting from a keyword search in PubMed database, the returned abstracts can be extracted and then imported into a citation management software, such as [EndNote](http://endnote.com/). Next, they are exported in BibTeX format, where every reference is annotated with a number of records including PubMed IDs. In pyTag pipeline, for each PubMed ID described in the BibTex files, the associated link in NCBI database is followed and the relevant abstract is extracted. Next, these abstracts are processed using a custom named entity recognition (NER) system called [EXTRACT 2.0](http://extract.jensenlab.org/). The system supports multiple ontologies and can recover the genes/proteins, small molecule compounds, organisms, environments, tissues, diseases, phenotypes and Gene Ontology terms in a given piece of text. After the collection and the annotation of the total number of abstracts is performed, a table describing the identified ontological terms is generated, which can next be subjected to statistical analysis for further exploration. 
 
 ## Why make this?
 The volume of biomedical literature in electronic format has grown exponentially over the past few years. To explore this huge amount of data to reveal hidden patterns, there is a need to use automated textmining tools that can elucidate useful insights provided if the information is available in a structured format. With ontology-driven annotation of biomedical data gaining popularity in recent years and online databases offering metatags with rich textual information, it is now possible to textmine ontological terms and explore these aspects through downstream statistical analysis. The automated interpretation of literature data offered from ```pytag```, can reduce the amount of information to manageable set of deducable patterns from which it is easier to draw conclusions and can be helpful for systematic reviews. 
