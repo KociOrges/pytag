@@ -119,7 +119,6 @@ Once the pipeline has finished processing, you will have the following contents 
 ```
 $ ls
 bibtex_example
-bibtex_files
 crohn_colitis_ontology_terms.tsv
 annotation_summary.tsv
 ```
