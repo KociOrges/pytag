@@ -85,12 +85,12 @@ We will run ```pytag``` using some BibTex files generated from a keyword search 
 }
 *The details of the article are all fake. This example just describes how BibTex files should look like before processing.
 ```
-Here, we have put some example generated BibTex files for each keyword searched inside the folder bibtex_example/. 
+Here, we have put the generated BibTex files for each keyword searched inside the folder bibtex_example/. 
 
 ```
 $ ls bibtex_example/
 Crohn.Nutrition.2015.2016.bib			
-Ulcerative.Colitis.Nutrition.2015.2016.bib
+UlcerativeColitis.Nutrition.2015.2016.bib
 ```
 
 In our scenario, we assume that we are interested in annotating our literature with terms that are related to all the supported ontology types (in case we would like to specify only some particular types then we should replace the parameter 'all' with the relevant numerical identifiers as described in section Usage). We also define ```crohn_colitis_ontology_terms.tsv``` as the ```TSV``` file where the identified terms will be described. This can be done as follows:
@@ -108,9 +108,9 @@ no annotation for reference with Pubmed ID:  26833290
 no annotation for reference with Pubmed ID:  26917043
 ...
 Crohn.Nutrition.2015.2016 : 676 references found in total. 607 abstracts were annotated from 630 available.
-Processing file: 2 Ulcerative.Colitis.Nutrition.2015.2016.bib
+Processing file: 2 UlcerativeColitis.Nutrition.2015.2016.bib
 ...
-Ulcerative.Colitis.Nutrition.2015.2016 : 463 references found in total. 429 abstracts were annotated from 443 available.
+UlcerativeColitis.Nutrition.2015.2016 : 463 references found in total. 429 abstracts were annotated from 443 available.
 Total number of references:  1139
 Total number of annotated abstracts:  1036
 Total number of BibTex files:  2
@@ -132,10 +132,10 @@ Crohn.Nutrition.2015.2016   26742586  inflammatory response   Biological Process
 Crohn.Nutrition.2015.2016   26742586  e. coli                 Organism             110766
 Crohn.Nutrition.2015.2016   25969456  4-cd                    Chemical Compound	   cids44608013
 ...
-Ulcerative.Colitis.Nutrition.2015.2016   25850835  perineal   Organism         138833
-Ulcerative.Colitis.Nutrition.2015.2016   26419460  trim39     Genes/Proteins   ensmusp00000039790
-Ulcerative.Colitis.Nutrition.2015.2016   26419460  traf6      Genes/Proteins   ensrnop00000006148
-Ulcerative.Colitis.Nutrition.2015.2016   27281309  intestine  Tissue           bto:0000642
+UlcerativeColitis.Nutrition.2015.2016   25850835  perineal   Organism         138833
+UlcerativeColitis.Nutrition.2015.2016   26419460  trim39     Genes/Proteins   ensmusp00000039790
+UlcerativeColitis.Nutrition.2015.2016   26419460  traf6      Genes/Proteins   ensrnop00000006148
+UlcerativeColitis.Nutrition.2015.2016   27281309  intestine  Tissue           bto:0000642
 ```
 
 In the ```annotation_summary.tsv``` table you will find for each BibTex file, the number of references that were found, the number of the abstracts that were available for these references and the number of the abstracts that were finally annotated. The file should look like this:
@@ -143,7 +143,7 @@ In the ```annotation_summary.tsv``` table you will find for each BibTex file, th
 $ cat annotation_summary.tsv 
 	                        Total_number_of_references   Available_abstracts   Annotated_abstracts
 Crohn.Nutrition.2015.2016	                       676	             630	           607
-Ulcerative.Colitis.Nutrition.2015.2016	               463	             443	           429
+UlcerativeColitis.Nutrition.2015.2016	               463	             443	           429
 ```
 
 After the steps above are completed, then we can easily import the file with the identified ontological terms into ```R software``` and generate a frequency table using the ```table()``` function to perform downstream analysis. In addition, in case we desire to assess temporal changes in literature from multiple keywords in a longitudinal setting, then the information provided in the ```annotation_summary.tsv``` can be useful in case we need to normalise our frequency data before doing statistics, based on e.g., the number of the annotated abstracts.
