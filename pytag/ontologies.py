@@ -61,7 +61,7 @@ def extract_terms(terms_table, pmid, infile, tsv_file):
                          lis[1] = "Molecular Function"
                       # Assing the name of the BibTex file with the pmid, the name of the identified term, #
                       # its ontology entry and its identifier in a string variable #
-                      linetofile = str(infile.rsplit('.', 1)[0]+"\t"+pmid+"\t"+lis[0]+"\t"+lis[1]+"\t"+lis[2]+"\t"+"\n")
+                      linetofile = str(infile.rsplit('.', 1)[0]+"\t"+pmid+"\t"+lis[0]+"\t"+lis[1]+"\t"+lis[2]+"\n")
                       # Include this information in the composite TSV table #
                       tsv_file.write(linetofile)
                       # Update the according tables for any duplicate names found in the list of the identified terms #
