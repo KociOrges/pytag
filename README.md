@@ -149,7 +149,7 @@ Coeliac.Diet.1995.1996			       197			168			162
 ...
 ```
 
-### Statistical Analysis (to be completed soon)
+### Statistical Analysis (to be updated soon)
 After the steps above are completed, then we can easily import the file with the identified ontological terms into R software and perform statistical analysis. First, we will need to source the associated Scripts for the analysis, and then import the table with the identified terms as well as the table with the annotation summary. This can be done as follows:
 
 ```
