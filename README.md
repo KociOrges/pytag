@@ -70,6 +70,7 @@ Schematic overview of ```pytag``` internal pipeline structure:
 ![pytag_internal_structure](https://user-images.githubusercontent.com/30604050/32101477-42bbf8ea-bb10-11e7-9069-e8b4c3bd25dd.png)
 
 ## Tutorial
+### Annotation
 We will run ```pytag``` using some BibTex files generated from keyword searches in PubMed database. Let's say that we are interested in exploring the content of ontological terms for publications related to Coeliac and Crohn's Disease and Ulcerative Colitis that cover aspects related to Nutrition, using the keywords: ```Diet, Food & Nutrition```. This is all done for a time frame from 1991 to 2016 in pairs of years (1991-1992, 1993-1994 and so on). For that purpose, in PubMed database we have searched for the Boolean keywords: ```(Coeliac AND Diet/Food/Nutrition)``` (similarly for the other disease conditions) between ```1991 to 2016```, to obtain the relevant literature. For each search, we have labelled and extracted the citations in external files, using the “Citation Manager” function in ```MEDLINE``` (tagged) format. Next, we have imported these files into ```EndNote```, to export them in BibTeX format where every reference is described with an associated PubMed ID. The PubMed ID is a unique identifier used in PubMed and assigned to each article record when it enters the PubMed system. **Before we run ```pytag```, we will need to make sure that our BibTex files contain in each of their references a record called ```Pubmed ID``` or ```Accession Number``` describing this unique identifier**. You can find a tutorial on how to edit the bibliographic styles in ```EndNote``` [here](http://libguides.usd.edu/content.php?pid=63203&sid=755800). **The references in the BibTex files should look like this:** 
 ```
 @article{
@@ -125,28 +126,30 @@ annotation_summary.tsv
 The ```crohn_colitis_ontology_terms.tsv``` is the most interesting file and contains the ontology terms identified in the references of each BibTex file, followed with the associated PubMed ID of the abstract they were found in each case. For each term, the relevant ontology entry is mentioned followed with the associated identifier. The ```TSV``` file should look like this:
 ```
 $ head ontology_terms.tsv
-Coeliac.Diet.1991.1992	1452072	major histocompatibility	Biological Process	go:0046776	
-Coeliac.Diet.1991.1992	1452072	lamina propria	Tissue	bto:0002330	
-Coeliac.Diet.1991.1992	1452072	pathogenesis	Biological Process	go:0009405	
-Coeliac.Diet.1991.1992	1452072	v 13	Chemical Compound	cids71299337	
-Coeliac.Diet.1991.1992	1452072	bowel	Tissue	bto:0000648	
-Coeliac.Diet.1991.1992	1452072	lymphocytes	Tissue	bto:0000775	
-Coeliac.Diet.1991.1992	1452072	epithelial	Tissue	bto:0000416	
-Coeliac.Diet.1991.1992	1452072	coeliac disease	Disease	doid:10608	
-Coeliac.Diet.1991.1992	1452072	mucosal	Tissue	bto:0000886	
-Coeliac.Diet.1991.1992	1452072	jejunal	Tissue	bto:0000657
+Coeliac.Diet.1991.1992	1452072		major histocompatibility	Biological Process	go:0046776	
+Coeliac.Diet.1991.1992	1452072		lamina propria			Tissue			bto:0002330	
+Coeliac.Diet.1991.1992	1452072		pathogenesis			Biological Process	go:0009405	
+Coeliac.Diet.1991.1992	1452072		v 13				Chemical Compound	cids71299337	
+Coeliac.Diet.1991.1992	1452072		bowel				Tissue			bto:0000648	
+Coeliac.Diet.1991.1992	1452072		lymphocytes			Tissue			bto:0000775	
+Coeliac.Diet.1991.1992	1452072		epithelial			Tissue			bto:0000416	
+Coeliac.Diet.1991.1992	1452072		coeliac disease			Disease			doid:10608	
+Coeliac.Diet.1991.1992	1452072		mucosal				Tissue			bto:0000886	
+Coeliac.Diet.1991.1992	1452072		jejunal				Tissue			bto:0000657
 ...
 ```
 
 In the ```annotation_summary.tsv``` table you will find for each BibTex file, the number of references that were found, the number of the abstracts that were available for these references and the number of the abstracts that were finally annotated. The file should look like this:
 ```
 $ head annotation_summary.tsv 
-	Total_number_of_references	Available_abstracts	Annotated_abstracts
-Coeliac.Diet.1991.1992	185	160	159
-Coeliac.Diet.1993.1994	139	122	122
-Coeliac.Diet.1995.1996	197	168	162
+			Total_number_of_references	Available_abstracts	Annotated_abstracts
+Coeliac.Diet.1991.1992			       185			160			159
+Coeliac.Diet.1993.1994			       139			122			122
+Coeliac.Diet.1995.1996			       197			168			162
 ...
 ```
+
+### Statistical Analysis
 
 After the steps above are completed, then we can easily import the file with the identified ontological terms into ```R software``` and generate a frequency table using the ```table()``` function to perform downstream analysis. In addition, in case we desire to assess temporal changes in literature from multiple keywords in a longitudinal setting, then the information provided in the ```annotation_summary.tsv``` can be useful in case we need to normalise our frequency data before doing statistics, based on e.g., the number of the annotated abstracts.
 
