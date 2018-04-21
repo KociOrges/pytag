@@ -150,6 +150,28 @@ Coeliac.Diet.1995.1996			       197			168			162
 ```
 
 ### Statistical Analysis
+After the steps above are completed, then we can easily import the file with the identified ontological terms into R software and perform statistical analysis. First, we will need to source the associated Scripts for the analysis, and then import the table with the identified terms as well as the table with the annotation summary. This can be done as follows:
 
-After the steps above are completed, then we can easily import the file with the identified ontological terms into ```R software``` and generate a frequency table using the ```table()``` function to perform downstream analysis. In addition, in case we desire to assess temporal changes in literature from multiple keywords in a longitudinal setting, then the information provided in the ```annotation_summary.tsv``` can be useful in case we need to normalise our frequency data before doing statistics, based on e.g., the number of the annotated abstracts.
+```
+library(R.utils)
+sourceDirectory("Scripts/")
+
+onto_terms <- read.delim("ontology_terms.tsv", header=FALSE, quote = "", 
+                         row.names = NULL, 
+                         stringsAsFactors = FALSE)
+			 
+colnames(onto_terms) <- c("Keyword", "PID", "Term", "Ontology", "Identifier")
+
+anot_sum <- read.delim("annotation_summary.tsv", header = TRUE, row.names = 1)
+```
+
+To start our analysis, the next important step is to create the frequency table from the list of the identified terms. In our annotation example, we have used all the ontology types supported from the system. However, in our downstream statistical analysis we may be interested in exploring the content of terms from specific ontologies. For example, in this case, we will extract and explore the terms that describe Organisms and Chemical compounds. This can be easily done as follows by adjusting the ontology parameter appropriately (in case we would like to include all types, then parameter ‘all’ should be used):
+```
+unique(onto_terms$Ontology)
+[1] "Biological Process" "Tissue" "Chemical Compound" "Disease"     
+[5] "Genes/Proteins" "Organism" "Molecular Function" "Cellular Component"
+[9] "Environment"
+
+freq_table <- create_frequency_table(onto_terms, ontology = c("Organism", "Chemical Compound"))
+```
 
