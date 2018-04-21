@@ -70,7 +70,7 @@ Schematic overview of ```pytag``` internal pipeline structure:
 ![pytag_internal_structure](https://user-images.githubusercontent.com/30604050/32101477-42bbf8ea-bb10-11e7-9069-e8b4c3bd25dd.png)
 
 ## Tutorial
-We will run ```pytag``` using some BibTex files generated from a keyword search in PubMed database. Let's say that we are interested in exploring the content of ontological terms for the publications related to Coeliac and Crohn's Disease and Ulcerative Colitis that cover aspects related to Nutrition, using the keywords Diet, Food & Nutrition. This is all done for a time frame from 1991 to 2016 in pairs of years. For that purpose, in PubMed database we have searched for the Boolean keywords: ```(Crohn's AND Nutrition)``` and ```(Ulcerative Colitis AND Nutrition)``` between ```2015 and 2016```, to obtain the relevant literature. For each search, we have labelled and extracted the citations in external files, using the “Citation Manager” function in ```MEDLINE``` (tagged) format. Next, we have imported these files into ```EndNote```, to export them in BibTeX format where every reference is described with an associated PubMed ID. The PubMed ID is a unique identifier used in PubMed and assigned to each article record when it enters the PubMed system. **Before we run ```pytag```, we will need to make sure that our BibTex files contain in each of their references a record called ```Pubmed ID``` or ```Accession Number``` describing this unique identifier**. You can find a tutorial on how to edit the bibliographic styles in ```EndNote``` [here](http://libguides.usd.edu/content.php?pid=63203&sid=755800). **The references in the BibTex files should look like this:** 
+We will run ```pytag``` using some BibTex files generated from keyword searches in PubMed database. Let's say that we are interested in exploring the content of ontological terms for publications related to Coeliac and Crohn's Disease and Ulcerative Colitis that cover aspects related to Nutrition, using the keywords: ```Diet, Food & Nutrition```. This is all done for a time frame from 1991 to 2016 in pairs of years (1991-1992, 1993-1994 and so on). For that purpose, in PubMed database we have searched for the Boolean keywords: ```(Coeliac AND Diet/Food/Nutrition)``` (similarly for the other disease conditions) between ```1991 to 2016```, to obtain the relevant literature. For each search, we have labelled and extracted the citations in external files, using the “Citation Manager” function in ```MEDLINE``` (tagged) format. Next, we have imported these files into ```EndNote```, to export them in BibTeX format where every reference is described with an associated PubMed ID. The PubMed ID is a unique identifier used in PubMed and assigned to each article record when it enters the PubMed system. **Before we run ```pytag```, we will need to make sure that our BibTex files contain in each of their references a record called ```Pubmed ID``` or ```Accession Number``` describing this unique identifier**. You can find a tutorial on how to edit the bibliographic styles in ```EndNote``` [here](http://libguides.usd.edu/content.php?pid=63203&sid=755800). **The references in the BibTex files should look like this:** 
 ```
 @article{
    title = {Latest evidence on Crohn's Disease}, 
@@ -89,60 +89,63 @@ Here, we have put the generated BibTex files for each keyword searched inside th
 
 ```
 $ ls bibtex_example/
-Crohn.Nutrition.2015.2016.bib			
-UlcerativeColitis.Nutrition.2015.2016.bib
+Coeliac.Diet.1991.1992.bib			Crohn.Food.2005.2006.bib
+Coeliac.Diet.1993.1994.bib			Crohn.Food.2007.2008.bib
 ```
 
-In our scenario, we assume that we are interested in annotating our literature with terms that are related to all the supported ontology types (in case we would like to specify only some particular types then we should replace the parameter 'all' with the relevant numerical identifiers as described in section Usage). We also define ```crohn_colitis_ontology_terms.tsv``` as the ```TSV``` file where the identified terms will be described. This can be done as follows:
+In our scenario, we assume that we are interested in annotating our literature with terms that are related to all the supported ontology types (in case we would like to specify only some particular types then we should replace the parameter 'all' with the relevant numerical identifiers as described in section Usage). We also define ```ontology_terms.tsv``` as the ```TSV``` file where the identified terms will be described. This can be done as follows:
 
 ```
-$ pytag --input_dir bibtex_example/ --onto_types all --out_file crohn_colitis_ontology_terms.tsv
+$ pytag --input_dir bibtex_example/ --onto_types all --out_file ontology_terms.tsv
 ```
 
 As the script is running, in the output you should be able to see which file is currently being annotated and for the references that no terms were identified in their abstract text content, a relevant message with their associated PubMed ID is also shown on the command line. After a BibTex file is processed, then the total number of references, the number of availabe and annotated abstracts are mentioned for the specific file. When the execution is completed for all the BibTex files, then the total number of references processed, the total number of the annotated abstracts and the number of BibTex files annotated from the pipeline are also shown on the command line:
 
 ```
-$ pytag --input_dir bibtex_example/ --onto_types all --out_file crohn_colitis_ontology_terms.tsv
-Processing file: 1 Crohn.Nutrition.2015.2016.bib
-no annotation for reference with Pubmed ID:  26833290
-no annotation for reference with Pubmed ID:  26917043
+$ pytag --input_dir bibtex_example/ --onto_types all --out_file ontology_terms.tsv
+Processing file: 1 Coeliac.Diet.1991.1992.bib
+no annotation for reference with Pubmed ID:  1444165
+Coeliac.Diet.1991.1992 : 185 references found in total. 159 abstracts were annotated from 160 available.
 ...
-Crohn.Nutrition.2015.2016 : 676 references found in total. 607 abstracts were annotated from 630 available.
-Processing file: 2 UlcerativeColitis.Nutrition.2015.2016.bib
+Crohn.Nutrition.2007.2008 : 256 references found in total. 216 abstracts were annotated from 226 available.
+Processing file: 75 Crohn.Nutrition.2009.2010.bib
 ...
 UlcerativeColitis.Nutrition.2015.2016 : 463 references found in total. 429 abstracts were annotated from 443 available.
-Total number of references:  1139
-Total number of annotated abstracts:  1036
-Total number of BibTex files:  2
+Total number of references:  20549
+Total number of annotated abstracts:  17750
+Total number of BibTex files:  117
 ```
 Once the pipeline has finished processing, you will have the following contents in your home folder:
 ```
 $ ls
 bibtex_example
-crohn_colitis_ontology_terms.tsv
+ontology_terms.tsv
 annotation_summary.tsv
 ```
 The ```crohn_colitis_ontology_terms.tsv``` is the most interesting file and contains the ontology terms identified in the references of each BibTex file, followed with the associated PubMed ID of the abstract they were found in each case. For each term, the relevant ontology entry is mentioned followed with the associated identifier. The ```TSV``` file should look like this:
 ```
-$ cat crohn_colitis_ontology_terms.tsv
-Crohn.Nutrition.2015.2016   26011900  cancer                  Disease              doid:162
-Crohn.Nutrition.2015.2016   26742586  proteobacteria          Organism	           1224
-Crohn.Nutrition.2015.2016   26742586  inflammatory response   Biological Process   go:0006954
-Crohn.Nutrition.2015.2016   26742586  e. coli                 Organism             110766
-Crohn.Nutrition.2015.2016   25969456  4-cd                    Chemical Compound	   cids44608013
+$ head ontology_terms.tsv
+Coeliac.Diet.1991.1992	1452072	major histocompatibility	Biological Process	go:0046776	
+Coeliac.Diet.1991.1992	1452072	lamina propria	Tissue	bto:0002330	
+Coeliac.Diet.1991.1992	1452072	pathogenesis	Biological Process	go:0009405	
+Coeliac.Diet.1991.1992	1452072	v 13	Chemical Compound	cids71299337	
+Coeliac.Diet.1991.1992	1452072	bowel	Tissue	bto:0000648	
+Coeliac.Diet.1991.1992	1452072	lymphocytes	Tissue	bto:0000775	
+Coeliac.Diet.1991.1992	1452072	epithelial	Tissue	bto:0000416	
+Coeliac.Diet.1991.1992	1452072	coeliac disease	Disease	doid:10608	
+Coeliac.Diet.1991.1992	1452072	mucosal	Tissue	bto:0000886	
+Coeliac.Diet.1991.1992	1452072	jejunal	Tissue	bto:0000657
 ...
-UlcerativeColitis.Nutrition.2015.2016   25850835  perineal   Organism         138833
-UlcerativeColitis.Nutrition.2015.2016   26419460  trim39     Genes/Proteins   ensmusp00000039790
-UlcerativeColitis.Nutrition.2015.2016   26419460  traf6      Genes/Proteins   ensrnop00000006148
-UlcerativeColitis.Nutrition.2015.2016   27281309  intestine  Tissue           bto:0000642
 ```
 
 In the ```annotation_summary.tsv``` table you will find for each BibTex file, the number of references that were found, the number of the abstracts that were available for these references and the number of the abstracts that were finally annotated. The file should look like this:
 ```
-$ cat annotation_summary.tsv 
-	                        Total_number_of_references   Available_abstracts   Annotated_abstracts
-Crohn.Nutrition.2015.2016	                       676	             630	           607
-UlcerativeColitis.Nutrition.2015.2016	               463	             443	           429
+$ head annotation_summary.tsv 
+	Total_number_of_references	Available_abstracts	Annotated_abstracts
+Coeliac.Diet.1991.1992	185	160	159
+Coeliac.Diet.1993.1994	139	122	122
+Coeliac.Diet.1995.1996	197	168	162
+...
 ```
 
 After the steps above are completed, then we can easily import the file with the identified ontological terms into ```R software``` and generate a frequency table using the ```table()``` function to perform downstream analysis. In addition, in case we desire to assess temporal changes in literature from multiple keywords in a longitudinal setting, then the information provided in the ```annotation_summary.tsv``` can be useful in case we need to normalise our frequency data before doing statistics, based on e.g., the number of the annotated abstracts.
