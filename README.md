@@ -174,4 +174,6 @@ unique(onto_terms$Ontology)
 
 freq_table <- create_frequency_table(onto_terms, ontology = c("Organism", "Chemical Compound"))
 ```
+In addition, imagine that we have a meta table (meta_table.tsv) that contains categorical information about the disease condition, the keyword type for nutrition and the date each search describes (where CCD: Coeliac Disease; CD: Crohn’s Disease; UC: Ulcerative Colitis).
+
 
