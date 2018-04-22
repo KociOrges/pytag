@@ -214,3 +214,10 @@ p <- plot_ordination(nmdsres, grouping_column = "Group", use_ellipse = TRUE, ell
 ```
 
 <img width="551" alt="nmds_tutorial" src="https://user-images.githubusercontent.com/30604050/39100938-0d9e4892-468a-11e8-8c83-063b4a55e32d.png">
+
+One of the first things that can be interesting to observe is the ontological terms that are the most frequent in the literature of the investigated conditions. For example, we may be interested in visualising the top 20 terms in literature for the entire time frame or for a particular time range as described below:
+```
+p <- plot_frequent_terms(freq_table_norm, meta_table, grouping_column = "Group", range = "2001 - 2010", terms = 20)
+```
+
+<img width="501" alt="top_20_tutorial" src="https://user-images.githubusercontent.com/30604050/39100977-cb0e5188-468a-11e8-81f9-8508ee198967.png">
