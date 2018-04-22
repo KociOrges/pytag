@@ -162,7 +162,7 @@ onto_terms <- read.delim("ontology_terms.tsv", header=FALSE, quote = "",
 			 
 colnames(onto_terms) <- c("Keyword", "PID", "Term", "Ontology", "Identifier")
 
-anot_sum <- read.delim("annotation_summary.tsv", header = TRUE, row.names = 1)
+annot_sum <- read.delim("annotation_summary.tsv", header = TRUE, row.names = 1)
 ```
 
 To start our analysis, the next important step is to create the frequency table from the list of the identified terms. In our annotation example, we have used all the ontology types supported from the system. However, in our downstream statistical analysis we may be interested in exploring the content of terms from specific ontologies. For example, in this case, we will extract and explore the terms that describe Organisms and Chemical compounds. This can be easily done as follows by adjusting the ontology parameter appropriately (in case we would like to include all types, then parameter ‘all’ should be used):
@@ -177,4 +177,40 @@ freq_table <- create_frequency_table(onto_terms, ontology = c("Organism", "Chemi
 In addition, imagine that we have a meta table (meta_table.tsv) that contains categorical information about the disease condition, the keyword type for nutrition and the date each search describes (where CCD: Coeliac Disease; CD: Crohn’s Disease; UC: Ulcerative Colitis).
 
 <img width="390" alt="screen shot 2018-04-21 at 22 23 44" src="https://user-images.githubusercontent.com/30604050/39089003-cb607fd4-45b4-11e8-8637-b14cf44b4ffc.png">
+
+We may find also useful in our analysis to remove first any low count terms, e.g. terms with <= 5 hits across all searches. Then, we can normalise our data before doing statistics. To account for the variation of the publications over time and perform analysis in a longitudinal setting, we can normalise the counts of the terms of each search with respect to the number of the abstracts that were annotated for that search. This can be achieved by using the information given in the annotation_summary.tsv file (generated when annotation is performed) and using the script described below:
+```
+freq_table <- freq_table[, colSums(freq_table) > 5]
+freq_table_norm <- normalise_data(freq_table, annot_sum, by = "Annotated_abstracts")
+```
+
+Significance of variability of ontological terms can be explored in a spatial (distances between groups) or temporal setting (expressed as in pairs of years) using permutation analysis of variance (PERMANOVA) and particularly, the function adonis from VEGAN package. All we need to do in such a case, is to specify the variables (Disease and/or Date) to be included in the formula, and then obtain the corresponding r-squared (% of variability explained) and p-values. 
+```
+library(vegan)
+adonis(formula = freq_table_norm ~ Group + Date, data = meta_table)
+
+Call:
+adonis(formula = freq_table_norm ~ Group + Date, data = meta_table) 
+
+Permutation: free
+Number of permutations: 999
+
+Terms added sequentially (first to last)
+
+           Df SumsOfSqs MeanSqs F.Model      R2 Pr(>F)    
+Group       2    8.5093  4.2546 30.2110 0.28265  0.001 ***
+Date       12    7.2312  0.6026  4.2789 0.24020  0.001 ***
+Residuals 102   14.3648  0.1408         0.47715           
+Total     116   30.1052                 1.00000           
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+```
+
+We can use Ordination to investigate for clustering between the disease groups i.e., how dissimilar the terms for a given search (disease condition or year) are from each other. Non-metric multidimensional scaling (NMDS) can be useful in this case, which simplifies the multivariate dataset into a just few dimensions (2D space, similar to PCA) based on dissimilarity (Bray-Curtis distance) between the terms for a given search. We perform NMDS analysis and visualise the result using the scripts as shown below:
+
+```
+nmdsres <- ordination_nmds(freq_table_norm, meta_table)
+p <- plot_ordination(nmdsres, grouping_column = "Group", use_ellipse = TRUE, ell.kind = "sd")
+```
+
 
