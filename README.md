@@ -213,4 +213,4 @@ nmdsres <- ordination_nmds(freq_table_norm, meta_table)
 p <- plot_ordination(nmdsres, grouping_column = "Group", use_ellipse = TRUE, ell.kind = "sd")
 ```
 
-
+<img width="551" alt="nmds_tutorial" src="https://user-images.githubusercontent.com/30604050/39100938-0d9e4892-468a-11e8-8c83-063b4a55e32d.png">
