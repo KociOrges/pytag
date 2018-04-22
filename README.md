@@ -226,7 +226,7 @@ Ontological terms that differentiate significantly between the disease condition
 ```
 kruskal.table.res <- KW_disease_groups(freq_table_norm, meta_table, grouping_column = "Group", range = "all")
 
-p <- plot_signif_spatial(freq_table_norm, meta_table, kruskal.table.res, grouping_column = "Group", range = "all", terms = 20, pvalue.cutoff = 0.05)
+p <- plot_signif_between_groups(freq_table_norm, meta_table, kruskal.table.res, grouping_column = "Group", range = "all", terms = 20, pvalue.cutoff = 0.05)
 ```
 
 <img width="1236" alt="kw_top_20_between groups_tutorial" src="https://user-images.githubusercontent.com/30604050/39101149-87322496-468d-11e8-8ada-fe8457e9c803.png">
