@@ -224,7 +224,7 @@ p <- plot_frequent_terms(freq_table_norm, meta_table, grouping_column = "Group",
 
 Ontological terms that differentiate significantly between the disease conditions can be explored using Kruskal-Wallis test for differential analysis. This can be also done for a given time range that we want to inspect (or the entire time frame by specifying 'all' as parameter). The level of significance can be also adjusted (pvalue.cutoff) on the returned pvalues that are corrected for multiple comparisons (Benjamini-Hochberg). Dunn’s comparisons are performed as a post-hoc procedure with asterisks indicating significant differences * = p<0.05, ** = p<0.01 and *** = p<0.001. The number of returned terms can be set appropriately when visualising the results (here we're showing the top 20 most significant terms).
 ```
-kruskal.table.res <- spatial_differential_analysis(freq_table_norm, meta_table, grouping_column = "Group", range = "all")
+kruskal.table.res <- KW_disease_groups(freq_table_norm, meta_table, grouping_column = "Group", range = "all")
 
 p <- plot_signif_spatial(freq_table_norm, meta_table, kruskal.table.res, grouping_column = "Group", range = "all", terms = 20, pvalue.cutoff = 0.05)
 ```
