@@ -228,10 +228,20 @@ p <- plot_frequent_terms(freq_table_norm, meta_table, grouping_column = "Group",
 
 Ontological terms that differentiate significantly between the disease conditions can be explored using Kruskal-Wallis test for differential analysis. This can be also done for a given time range that we want to inspect (or the entire time frame by specifying 'all' as parameter). The level of significance can be also adjusted (pvalue.cutoff) on the returned pvalues which are corrected for multiple comparisons (Benjamini-Hochberg). Dunn’s comparisons are performed as a post-hoc procedure with asterisks indicating significant differences * = p<0.05, ** = p<0.01 and *** = p<0.001. The number of returned terms can be set appropriately when visualising the results (here we're showing the top 20 most significant ones).
 ```
+# Perform KW test
 kruskal.table.res <- KW_disease_groups(freq_table_norm, meta_table, grouping_column = "Group", range = "all")
 
+# Visualise the results
 p <- plot_signif_between_groups(freq_table_norm, meta_table, kruskal.table.res, grouping_column = "Group", range = "all", terms = 20, pvalue.cutoff = 0.05)
 ```
 
 <img width="1225" alt="kw_top_20_between_groups_tutorial" src="https://user-images.githubusercontent.com/30604050/39127748-d8560228-46fd-11e8-9540-510bb5a2f913.png">
 
+In a similar way, we can use Kruskal-Wallis test to explore for terms differentiating significantly in a temporal setting. This can be done for a given disease condition and a time range that we want to inspect, using the scripts below:
+```
+# Perform KW test
+kruskal.table.res <- KW_temporal(freq_table_norm, meta_table, condition = "CD", grouping_column = "Date", range = "all")
+
+# Visualise the results
+p <- plot_signif_temporal(freq_table_norm, meta_table, kruskal.table.res, condition = "CD", grouping_column = "Date", range = "all", terms = 30, pvalue.cutoff = 0.05)
+```
