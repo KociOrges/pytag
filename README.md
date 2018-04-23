@@ -233,5 +233,5 @@ kruskal.table.res <- KW_disease_groups(freq_table_norm, meta_table, grouping_col
 p <- plot_signif_between_groups(freq_table_norm, meta_table, kruskal.table.res, grouping_column = "Group", range = "all", terms = 20, pvalue.cutoff = 0.05)
 ```
 
-<img width="1236" alt="kw_top_20_between groups_tutorial" src="https://user-images.githubusercontent.com/30604050/39101149-87322496-468d-11e8-8ada-fe8457e9c803.png">
+<img width="1225" alt="kw_top_20_between_groups_tutorial" src="https://user-images.githubusercontent.com/30604050/39127748-d8560228-46fd-11e8-9540-510bb5a2f913.png">
 
