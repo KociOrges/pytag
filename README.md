@@ -124,7 +124,7 @@ bibtex_example
 ontology_terms.tsv
 annotation_summary.tsv
 ```
-The ```crohn_colitis_ontology_terms.tsv``` is the most interesting file and contains the ontology terms identified in the references of each BibTex file, followed with the associated PubMed ID of the abstract they were found in each case. For each term, the relevant ontology entry is mentioned followed with the associated identifier. The ```TSV``` file should look like this:
+The ```ontology_terms.tsv``` is the most interesting file and contains the ontology terms identified in the references of each BibTex file, followed with the associated PubMed ID of the abstract they were found in each case. For each term, the relevant ontology entry is mentioned followed with the associated identifier. The ```TSV``` file should look like this:
 ```
 $ head ontology_terms.tsv
 Coeliac.Diet.1991.1992	1452072		major histocompatibility	Biological Process	go:0046776	
