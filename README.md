@@ -157,7 +157,7 @@ After the steps above are completed, then we can easily import the file with the
 library(R.utils)
 sourceDirectory("Rscripts/")
 
-onto_terms <- read.delim("ontology_terms.tsv", header=FALSE, quote = "", 
+onto_terms <- read.delim("ontology_terms.tsv", header = FALSE, quote = "", 
                          row.names = NULL, 
                          stringsAsFactors = FALSE)
 			 
@@ -177,7 +177,7 @@ freq_table <- create_frequency_table(onto_terms, ontology = c("Organism", "Chemi
 ```
 In addition, imagine that we have a meta table (tutorial/meta_table.tsv) that contains categorical information about the disease condition, the keyword type for nutrition and the date each search was performed on (where CCD: Coeliac Disease; CD: Crohn’s Disease; UC: Ulcerative Colitis). We can load the file like this:
 ```
-meta_table <- read.delim("meta_table.tsv", header=TRUE, row.names = 1, stringsAsFactors = FALSE)
+meta_table <- read.delim("meta_table.tsv", header = TRUE, row.names = 1, stringsAsFactors = FALSE)
 ```
 
 <img width="390" alt="screen shot 2018-04-21 at 22 23 44" src="https://user-images.githubusercontent.com/30604050/39089003-cb607fd4-45b4-11e8-8637-b14cf44b4ffc.png">
