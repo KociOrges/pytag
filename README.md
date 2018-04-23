@@ -243,5 +243,7 @@ In a similar way, we can use Kruskal-Wallis test to explore for terms differenti
 kruskal.table.res <- KW_temporal(freq_table_norm, meta_table, condition = "CD", grouping_column = "Date", range = "all")
 
 # Visualise the results
-p <- plot_signif_temporal(freq_table_norm, meta_table, kruskal.table.res, condition = "CD", grouping_column = "Date", range = "all", terms = 30, pvalue.cutoff = 0.05)
+p <- plot_signif_temporal(freq_table_norm, meta_table, kruskal.table.res, condition = "CD", grouping_column = "Date", range = "all", terms = 150, pvalue.cutoff = 0.05)
 ```
+
+<img width="1247" alt="kw_significant_temporal_tutorial" src="https://user-images.githubusercontent.com/30604050/39133959-5bf145e8-470d-11e8-8936-7a1f0a296647.png">
