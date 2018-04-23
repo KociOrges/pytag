@@ -188,7 +188,7 @@ freq_table <- freq_table[, colSums(freq_table) > 5]
 freq_table_norm <- normalise_data(freq_table, annot_sum, by = "Annotated_abstracts")
 ```
 
-Significance of variability of ontological terms can be explored in a spatial (distances between groups) or temporal setting (expressed as in pairs of years) using permutation analysis of variance (PERMANOVA) and particularly, the function adonis from VEGAN package. All we need to do in such a case, is to specify the variables (Disease and/or Date) to be included in the formula, and then obtain the corresponding r-squared (% of variability explained) and p-values. 
+Significance of variability of ontological terms can be explored in a spatial (distances between groups) or temporal setting (expressed as in pairs of years) using permutation analysis of variance (PERMANOVA) and particularly, the function adonis from VEGAN package. All we need to do in such a case, is to specify the variables (Disease and/or Date) to be included in the formula and then obtain the corresponding r-squared (% of variability explained) and p-values. 
 ```
 library(vegan)
 adonis(formula = freq_table_norm ~ Group + Date, data = meta_table)
