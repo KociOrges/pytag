@@ -86,9 +86,10 @@ We will run ```pytag``` using some BibTex files generated from keyword searches 
 }
 *The details of the article are all fake. This example just describes how BibTex files should look like before processing.
 ```
-Here, we have put the generated BibTex files for each keyword searched inside the folder bibtex_example/. 
+Here, we have put the generated BibTex files for each keyword searched inside the folder tutorial/bibtex_example/. 
 
 ```
+$ cd tutorial/
 $ ls bibtex_example/
 Coeliac.Diet.1991.1992.bib			Crohn.Food.2005.2006.bib
 Coeliac.Diet.1993.1994.bib			Crohn.Food.2007.2008.bib
