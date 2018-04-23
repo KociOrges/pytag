@@ -1,6 +1,6 @@
 create_frequency_table <- function(data, ontology = "all") {
 	
-	# Words/terms that are assigned from the tagger to the same ontology entry i.e., are described by a shared identifier but are in a different form (e.g. coeliac disease and celieac disease), are put together as the occurence of the same term.
+	# Words/terms that are assigned from the tagger to the same ontology entry and are described by a shared identifier, but are in a different form (e.g. coeliac disease and celieac disease), are put together as the occurence of the same term.
 	
 	# Extract the columns for the Ontological Terms and their Identifiers
 	library(data.table)
