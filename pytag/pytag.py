@@ -16,7 +16,7 @@ def main():
       onto_types_parameters = {
           "--onto_types" : "The ontologies to be used for annotation."
                             + " 0:Genes/Proteins,"
-                            + "-1:PubChem Compound identifiers,"
+                            + "-1:Small Molecule Compound identifiers,"
                             + "-2:NCBI Taxonomy entries,"
                             + "-21:Gene Ontology biological process terms,"
                             + "-22:Gene Ontology cellular component terms,"
