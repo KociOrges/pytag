@@ -217,14 +217,14 @@ nmdsres <- ordination_nmds(freq_table_norm, meta_table)
 p <- plot_ordination(nmdsres, grouping_column = "Group", use_ellipse = TRUE, ell.kind = "sd")
 ```
 
-<img width="551" alt="nmds_tutorial" src="https://user-images.githubusercontent.com/30604050/39100938-0d9e4892-468a-11e8-8c83-063b4a55e32d.png">
+<img width="582" alt="nmds_tutorial" src="https://user-images.githubusercontent.com/30604050/39127346-af10548c-46fc-11e8-9ce1-e2e736c65a04.png">
 
 One of the first things that can be interesting to observe is the ontological terms that are the most frequent in the literature of the investigated conditions. For example, we may be interested in visualising the top 20 terms in literature for the entire time frame or for a particular time range as described below:
 ```
-p <- plot_frequent_terms(freq_table_norm, meta_table, grouping_column = "Group", range = "2001 - 2010", terms = 20)
+p <- plot_frequent_terms(freq_table_norm, meta_table, grouping_column = "Group", range = "2001 - 2016", terms = 20)
 ```
 
-<img width="501" alt="top_20_tutorial" src="https://user-images.githubusercontent.com/30604050/39100977-cb0e5188-468a-11e8-81f9-8508ee198967.png">
+<img width="492" alt="top_20_tutorial" src="https://user-images.githubusercontent.com/30604050/39127347-af2b1182-46fc-11e8-9dcb-11be1e4a3921.png">
 
 Ontological terms that differentiate significantly between the disease conditions can be explored using Kruskal-Wallis test for differential analysis. This can be also done for a given time range that we want to inspect (or the entire time frame by specifying 'all' as parameter). The level of significance can be also adjusted (pvalue.cutoff) on the returned pvalues which are corrected for multiple comparisons (Benjamini-Hochberg). Dunn’s comparisons are performed as a post-hoc procedure with asterisks indicating significant differences * = p<0.05, ** = p<0.01 and *** = p<0.001. The number of returned terms can be set appropriately when visualising the results (here we're showing the top 20 most significant ones).
 ```
