@@ -202,10 +202,10 @@ Number of permutations: 999
 Terms added sequentially (first to last)
 
            Df SumsOfSqs MeanSqs F.Model      R2 Pr(>F)    
-Group       2    8.5093  4.2546 30.2110 0.28265  0.001 ***
-Date       12    7.2312  0.6026  4.2789 0.24020  0.001 ***
-Residuals 102   14.3648  0.1408         0.47715           
-Total     116   30.1052                 1.00000           
+Group       2    8.5457  4.2729 29.9503 0.28095  0.001 ***
+Date       12    7.3195  0.6100  4.2754 0.24064  0.001 ***
+Residuals 102   14.5519  0.1427         0.47841           
+Total     116   30.4171                 1.00000           
 ---
 Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
 ```
