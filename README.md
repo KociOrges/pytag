@@ -155,7 +155,7 @@ After the steps above are completed, then we can easily import the file with the
 
 ```
 library(R.utils)
-sourceDirectory("Scripts/")
+sourceDirectory("Rscripts/")
 
 onto_terms <- read.delim("ontology_terms.tsv", header=FALSE, quote = "", 
                          row.names = NULL, 
