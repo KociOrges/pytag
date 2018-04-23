@@ -166,7 +166,7 @@ colnames(onto_terms) <- c("Keyword", "PID", "Term", "Ontology", "Identifier")
 annot_sum <- read.delim("annotation_summary.tsv", header = TRUE, row.names = 1)
 ```
 
-To start our analysis, the next important step is to create the frequency table from the list of the identified terms. In our annotation example, we have used all the ontology types supported from the system. However, in our downstream statistical analysis we may be interested in exploring the content of terms from specific ontologies. For example, in this case, we will extract and explore the terms that describe Organisms and Chemical compounds. This can be easily done as follows by adjusting the ontology parameter appropriately (in case we would like to include all types, then parameter ‘all’ should be used):
+To start our analysis, the next important step is to create the frequency table from the list of the identified terms. In our annotation example, we have used all the ontology types supported from the system. However, in our downstream statistical analysis we may be interested in exploring the content of terms from specific ontologies at a time. For example, in this case, we will extract and explore the terms that describe Organisms and Chemical compounds. This can be easily done as follows by adjusting the ontology parameter appropriately (in case we would like to include all types, then parameter ‘all’ should be used):
 ```
 unique(onto_terms$Ontology)
 [1] "Biological Process" "Tissue" "Chemical Compound" "Disease"     
