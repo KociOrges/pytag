@@ -2,28 +2,28 @@ plot_frequent_terms <- function(freq_data, meta_table, grouping_column, range = 
 
 	# Check and parse the range parameter for the dates to be considered
 	if(range != "all") {
-      range <- t(as.data.frame(strsplit(range, "-")))
-      range <- gsub(" ", "", range)
+          range <- t(as.data.frame(strsplit(range, "-")))
+          range <- gsub(" ", "", range)
     
-      dates1 <- t(as.data.frame(strsplit(meta_table$Date, "-")))[,1]
-      dates1 <- gsub(" ", "", dates1)
-      dates2 <- t(as.data.frame(strsplit(meta_table$Date, "-")))[,2]
-      dates2 <- gsub(" ", "", dates2)
+          dates1 <- t(as.data.frame(strsplit(meta_table$Date, "-")))[,1]
+          dates1 <- gsub(" ", "", dates1)
+          dates2 <- t(as.data.frame(strsplit(meta_table$Date, "-")))[,2]
+          dates2 <- gsub(" ", "", dates2)
     
-      if( (!range[,1] %in% dates1) | (!range[,2] %in% dates2) ) {
-        stop("Date range given does not match data. Insert appropriate range")
-      } else {
-        meta_table <- meta_table[( ( dates1 >= range[,1] | dates2 >= range[,1]) & ( dates1 <= range[,2] | dates2 <= range[,2]) ) , ]
-      }
-    }
+          if( (!range[,1] %in% dates1) | (!range[,2] %in% dates2) ) {
+            stop("Date range given does not match data. Insert appropriate range")
+          } else {
+            meta_table <- meta_table[( ( dates1 >= range[,1] | dates2 >= range[,1]) & ( dates1 <= range[,2] | dates2 <= range[,2]) ) , ]
+          }
+        }
     
 	# Check that frequency data and data from meta table describe the same samples/searches
-    data <- freq_data[rownames(freq_data) %in% rownames(meta_table), ]
-    data <- data[, colSums(data) > 0]
+        data <- freq_data[rownames(freq_data) %in% rownames(meta_table), ]
+        data <- data[, colSums(data) > 0]
   
 	if(dim(data)[1] != dim(meta_table)[1]) {
-      meta_table <- meta_table[rownames(meta_table) %in% rownames(data), ]
-    }
+          meta_table <- meta_table[rownames(meta_table) %in% rownames(data), ]
+        }
   
   	# Keep the top number of terms as specified from parameter 'terms'
 	freq_terms <- data[, order(colSums(data), decreasing=TRUE)][,1:terms]
