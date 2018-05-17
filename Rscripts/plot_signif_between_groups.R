@@ -51,7 +51,6 @@ plot_signif_between_groups <- function(freq_data, meta_table, kruskal.wallis.tab
 	}
 
 	colnames(df) <- c("Value", "Group", "Measure", "padj")
-
 	grouping_column <- "Group"
 
 	# Load library for the Dunn's comparisons
