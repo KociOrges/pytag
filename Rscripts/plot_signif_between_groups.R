@@ -1,31 +1,31 @@
 plot_signif_between_groups <- function(freq_data, meta_table, kruskal.wallis.table, grouping_column, range = "all", terms, pvalue.cutoff) {
   
 	# Check and parse the range parameter for the dates to be considered  
-    if(range != "all") {
-      range <- t(as.data.frame(strsplit(range, "-")))
-      range <- gsub(" ", "", range)
+        if(range != "all") {
+          range <- t(as.data.frame(strsplit(range, "-")))
+          range <- gsub(" ", "", range)
     
-      dates1 <- t(as.data.frame(strsplit(meta_table$Date, "-")))[,1]
-      dates1 <- gsub(" ", "", dates1)
-      dates2 <- t(as.data.frame(strsplit(meta_table$Date, "-")))[,2]
-      dates2 <- gsub(" ", "", dates2)
+          dates1 <- t(as.data.frame(strsplit(meta_table$Date, "-")))[,1]
+          dates1 <- gsub(" ", "", dates1)
+          dates2 <- t(as.data.frame(strsplit(meta_table$Date, "-")))[,2]
+          dates2 <- gsub(" ", "", dates2)
     
-      if( (!range[,1] %in% dates1) | (!range[,2] %in% dates2) ) {
-        stop("Date range given does not match data. Insert appropriate range")
-      } else {
-        meta_table <- meta_table[( ( dates1 >= range[,1] | dates2 >= range[,1]) & ( dates1 <= range[,2] | dates2 <= range[,2]) ) , ]
-      }
-    }
+          if( (!range[,1] %in% dates1) | (!range[,2] %in% dates2) ) {
+            stop("Date range given does not match data. Insert appropriate range")
+          } else {
+            meta_table <- meta_table[( ( dates1 >= range[,1] | dates2 >= range[,1]) & ( dates1 <= range[,2] | dates2 <= range[,2]) ) , ]
+          }
+        }
   
  	# Check that frequency data and data from meta table describe the same samples/searches
-    groups <- as.factor(meta_table[, grouping_column])
-    data <- freq_data[rownames(freq_data) %in% rownames(meta_table), ]
-    data <- data[, colSums(data) > 0]
+        groups <- as.factor(meta_table[, grouping_column])
+        data <- freq_data[rownames(freq_data) %in% rownames(meta_table), ]
+        data <- data[, colSums(data) > 0]
   
-    if(dim(data)[1] != dim(meta_table)[1]) {
-      meta_table <- meta_table[rownames(meta_table) %in% rownames(data), ]
-      groups <- as.factor(meta_table[, grouping_column])
-    }
+        if(dim(data)[1] != dim(meta_table)[1]) {
+          meta_table <- meta_table[rownames(meta_table) %in% rownames(data), ]
+          groups <- as.factor(meta_table[, grouping_column])
+        }
 
 	# Keep the significant terms based on pvalue.cutoff
 	selected <- which(kruskal.wallis.table$padj < pvalue.cutoff)
@@ -92,9 +92,6 @@ plot_signif_between_groups <- function(freq_data, meta_table, kruskal.wallis.tab
 	
 	df$Measure <- gsub(" padj =", "\n padj =", df$Measure)
 	df_pw$Measure <- gsub(" padj =", "\n padj =", df_pw$Measure)
-	
-	#df$measure <- factor(df$measure, as.character(df$measure))
-	#df_pw$measure <- factor(df_pw$measure, as.character(df_pw$measure))
 
 	p <- ggplot(aes_string(x=grouping_column,y="Value",color=grouping_column),data=df)
 	p <- p + geom_boxplot() + geom_jitter(position = position_jitter(height = 0, width=0))
