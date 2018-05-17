@@ -1,19 +1,19 @@
 KW_disease_groups <- function(freq_data, meta_table, grouping_column, range = "all") {
   
-    # Check and parse the range parameter for the dates to be considered
-    if(range != "all") {
-      range <- t(as.data.frame(strsplit(range, "-")))
-      range <- gsub(" ", "", range)
+        # Check and parse the range parameter for the dates to be considered
+        if(range != "all") {
+          range <- t(as.data.frame(strsplit(range, "-")))
+          range <- gsub(" ", "", range)
     
-      dates1 <- t(as.data.frame(strsplit(meta_table$Date, "-")))[,1]
-      dates1 <- gsub(" ", "", dates1)
-      dates2 <- t(as.data.frame(strsplit(meta_table$Date, "-")))[,2]
+          dates1 <- t(as.data.frame(strsplit(meta_table$Date, "-")))[,1]
+          dates1 <- gsub(" ", "", dates1)
+          dates2 <- t(as.data.frame(strsplit(meta_table$Date, "-")))[,2]
 	  dates2 <- gsub(" ", "", dates2)
     
-      if( (!range[,1] %in% dates1) | (!range[,2] %in% dates2) ) {
-        stop("Date range given does not match data. Insert appropriate range")
-      } else {
-        meta_table <- meta_table[( ( dates1 >= range[,1] | dates2 >= range[,1]) & ( dates1 <= range[,2] | dates2 <= range[,2]) ) , ]
+          if( (!range[,1] %in% dates1) | (!range[,2] %in% dates2) ) {
+            stop("Date range given does not match data. Insert appropriate range")
+          } else {
+            meta_table <- meta_table[( ( dates1 >= range[,1] | dates2 >= range[,1]) & ( dates1 <= range[,2] | dates2 <= range[,2]) ) , ]
 	  }
 	}
   
@@ -22,10 +22,10 @@ KW_disease_groups <- function(freq_data, meta_table, grouping_column, range = "a
 	data <- freq_data[rownames(freq_data) %in% rownames(meta_table), ]
 	data <- data[, colSums(data) > 0]
   
-    if(dim(data)[1] != dim(meta_table)[1]) {
-      meta_table <- meta_table[rownames(meta_table) %in% rownames(data), ]
-      groups <- as.factor(meta_table[, grouping_column])
-    }
+        if(dim(data)[1] != dim(meta_table)[1]) {
+          meta_table <- meta_table[rownames(meta_table) %in% rownames(data), ]
+          groups <- as.factor(meta_table[, grouping_column])
+        }
 
 	# Perform Kruskal-Wallis test for each term between the disease groups
 	kruskal.wallis.table <- data.frame()
