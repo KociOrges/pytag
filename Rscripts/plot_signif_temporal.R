@@ -1,24 +1,24 @@
 plot_signif_temporal <- function(freq_data, meta_table, kruskal.wallis.table, condition, grouping_column, range = "all", terms, pvalue.cutoff) {
   
 	# Check and parse the range parameter for the dates to be considered  
-    if(range != "all") {
-      range <- t(as.data.frame(strsplit(range, "-")))
-      range <- gsub(" ", "", range)
+        if(range != "all") {
+          range <- t(as.data.frame(strsplit(range, "-")))
+          range <- gsub(" ", "", range)
     
-      dates1 <- t(as.data.frame(strsplit(meta_table$Date, "-")))[,1]
-      dates1 <- gsub(" ", "", dates1)
-      dates2 <- t(as.data.frame(strsplit(meta_table$Date, "-")))[,2]
-      dates2 <- gsub(" ", "", dates2)
+          dates1 <- t(as.data.frame(strsplit(meta_table$Date, "-")))[,1]
+          dates1 <- gsub(" ", "", dates1)
+          dates2 <- t(as.data.frame(strsplit(meta_table$Date, "-")))[,2]
+          dates2 <- gsub(" ", "", dates2)
     
-      if( (!range[,1] %in% dates1) | (!range[,2] %in% dates2) ) {
-        stop("Date range given does not match data. Insert appropriate range")
-      } else {
-        meta_table <- meta_table[( ( dates1 >= range[,1] | dates2 >= range[,1]) & ( dates1 <= range[,2] | dates2 <= range[,2]) ) , ]
-      }
-    }
+          if( (!range[,1] %in% dates1) | (!range[,2] %in% dates2) ) {
+            stop("Date range given does not match data. Insert appropriate range")
+          } else {
+            meta_table <- meta_table[( ( dates1 >= range[,1] | dates2 >= range[,1]) & ( dates1 <= range[,2] | dates2 <= range[,2]) ) , ]
+          }
+        }
     
-    # Check that frequency data and data from meta table describe the same samples/searches
-    meta_cond <- meta_table[apply(meta_table, 1, function(r) any(r %in% c(condition))),]
+        # Check that frequency data and data from meta table describe the same samples/searches
+        meta_cond <- meta_table[apply(meta_table, 1, function(r) any(r %in% c(condition))),]
 	groups <- as.factor(meta_cond[, grouping_column])
 	
 	data <- freq_data[rownames(freq_data) %in% rownames(meta_cond), ]
