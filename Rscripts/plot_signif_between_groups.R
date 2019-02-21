@@ -73,7 +73,7 @@ plot_signif_between_groups <- function(freq_data, meta_table, kruskal.wallis.tab
 	        #Perform DunnÆs post-hoc test 
 	        tmp <- c(k,s[1,l],s[2,l],bas,paste(sprintf("%.2g",tryCatch( (out <- posthoc.kruskal.dunn.test(x=data$Value, g= data[, grouping_column], p.adjust.method="BH"))[[3]][1] ,error=function(e) NULL)), "", sep=""))
 	        
-	        #Ignore if anova fails
+	        #Ignore if post-hoc test fails
 	        if(!is.na(as.numeric(tmp[length(tmp)]))) {
 	            
 	            #Only retain those pairs where the p-values are significant
