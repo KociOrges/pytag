@@ -1,8 +1,5 @@
 # ```pytag```
 Automated identification of ontological terms in application area specific literature surveys
-```diff
-- Please note that the repository for this project is still under construction!
-```
 
 ## Dependencies
 - You will need python version 3.4.2 or newer versions to execute the software.
@@ -68,6 +65,11 @@ Schematic of the workflow for the automated identification and analyses of ontol
 
 Schematic overview of ```pytag``` internal pipeline structure:
 ![pytag_internal_structure](https://user-images.githubusercontent.com/30604050/32101477-42bbf8ea-bb10-11e7-9069-e8b4c3bd25dd.png)
+
+## Please cite
+If you use ```pytag``` in your publication, please cite:
+
+Koci O, Logan M, Svolos V, Russell RK, Gerasimidis K, Ijaz UZ. 2018. An automated identification and analysis of ontological terms in gastrointestinal diseases and nutrition-related literature provides useful insights. PeerJ 6:e5047 https://doi.org/10.7717/peerj.5047
 
 ## Tutorial
 ### Annotation
