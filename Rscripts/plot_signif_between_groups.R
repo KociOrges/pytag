@@ -17,7 +17,7 @@ plot_signif_between_groups <- function(freq_data, meta_table, kruskal.wallis.tab
     }
   }
   
-  # Check that frequency data and data from meta table describe the same samples/searches
+  # Make sure that frequency data and data from meta table describe the same samples/searches
   groups <- as.factor(meta_table[, grouping_column])
   data <- freq_data[rownames(freq_data) %in% rownames(meta_table), ]
   data <- data[, colSums(data) > 0]
