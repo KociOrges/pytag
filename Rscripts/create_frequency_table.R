@@ -25,7 +25,10 @@ create_frequency_table <- function(data, ontology = "all") {
     onto_terms_id$Term[onto_terms_id$Identifier == id] <- term
   }
   
-  # When annotating a single abstract, Inflect package is used to avoid both singular and plural forms for a term to be included in the list of the identified terms. After the annotation, if a single word is found in both forms between different abstracts then their frequencies are put together and described by their singular form. The general case where a single word is found with a prefix of “s” is considered for the plural form.
+  # When annotating a single abstract, Inflect package is used to avoid both singular and plural forms 
+  # for a term to be included in the list of the identified terms. After the annotation, if a single word 
+  # is found in both forms between different abstracts then their frequencies are put together and described 
+  # by their singular form. The general case where a single word is found with a prefix of “s” is considered for the plural form.
   
   count <- 0
   uniq_terms <- unique(onto_terms_id$Term)
