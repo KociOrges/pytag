@@ -17,7 +17,7 @@ plot_signif_temporal <- function(freq_data, meta_table, kruskal.wallis.table, co
     }
   }
   
-  # Check that frequency data and data from meta table describe the same samples/searches
+  # Make sure that frequency data and data from meta table describe the same samples/searches
   meta_cond <- meta_table[apply(meta_table, 1, function(r) any(r %in% c(condition))),]
   groups <- as.factor(meta_cond[, grouping_column])
   
