@@ -6,5 +6,6 @@ normalise_data <- function(freq_data, annot_sum, by) {
 		"Available_abstracts" = (norm_data <- freq_data / annot_sum$Available_abstracts),
 		"Annotated_abstracts" = (norm_data <- freq_data / annot_sum$Annotated_abstracts),
 	)
+	
 	return(norm_data)
 }
