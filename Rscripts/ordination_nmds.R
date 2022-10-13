@@ -1,5 +1,5 @@
 ordination_nmds <- function(freq_data, meta_table) {
-  # add test line 1
+ 
   # perform NDMS using 'bray-curtis' distance
   sol <- metaMDS(freq_data, distance = "bray", k = 2, trymax = 50)
   
@@ -11,6 +11,6 @@ ordination_nmds <- function(freq_data, meta_table) {
     NMDS <- cbind(NMDS, as.factor(meta_table[,i]))
     colnames(NMDS)[dim(NMDS)[2]] = colnames(meta_table)[i]
   }
- # add test line 2
+
   return(NMDS)
 }
