@@ -1,5 +1,5 @@
 plot_signif_temporal <- function(freq_data, meta_table, kruskal.wallis.table, condition, grouping_column, range = "all", terms, pvalue.cutoff) {
-  
+  # test line master
   # Check and parse the range parameter for the dates to be considered  
   if(range != "all") {
     range <- t(as.data.frame(strsplit(range, "-")))
