@@ -55,6 +55,6 @@ plot_signif_temporal <- function(freq_data, meta_table, kruskal.wallis.table, co
   p <- p + theme_bw()
   p <- p + theme(axis.text.x=element_text(size=7, angle=90, hjust=1, vjust=0.2)) + theme(axis.text.y=element_text(size=14)) +theme(strip.text.x = element_text(size = 14, colour = "black")) + theme(text = element_text(size=28)) + facet_wrap( ~ factor(df$Term, levels = unique(df$Term)), scales="free_x", ncol=25)
   p <- p + stat_summary(fun.y=mean, geom="point",color="#56B4E9", size=2) + stat_summary(fun.y=mean, geom="line",color="#56B4E9", size=1)
-  
+  # test line ok
   return(p)
 }
