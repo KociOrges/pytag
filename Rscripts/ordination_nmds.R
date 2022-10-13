@@ -11,6 +11,6 @@ ordination_nmds <- function(freq_data, meta_table) {
     NMDS <- cbind(NMDS, as.factor(meta_table[,i]))
     colnames(NMDS)[dim(NMDS)[2]] = colnames(meta_table)[i]
   }
-  # Test line ok
+  
   return(NMDS)
 }
