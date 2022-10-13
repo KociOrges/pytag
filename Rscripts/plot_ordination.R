@@ -48,6 +48,6 @@ plot_ordination <- function(nmds_res, grouping_column, use_ellipse = T, ell.kind
     p <- p + theme_bw() + geom_point(aes(colour = Group, shape = Group))
     p <- p + annotate("text", x = NMDS.mean$NMDS1, y = NMDS.mean$NMDS2, label = NMDS.mean$group)
   }
-  
+ 
   return(p)
 }
